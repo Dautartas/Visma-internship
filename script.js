@@ -17,10 +17,12 @@ function renderShop() {
   shopGrid.innerHTML = "";
   loadData().then((data) => {
     data["products"].forEach((product) => {
+      let name = product.name;
+      if (name.length > 20) name = name.substring(0, 17) + "...";
       shopGrid.innerHTML += `<div class="product">
               <img src=${product.image} alt="product" class="product__image" />
               <div class="product__info">
-                <span class="product__info__name">${product.name}</span>
+                <span class="product__info__name" title="${product.name}">${name}</span>
                 <span class="product__info__price">${product.price} €</span>
               </div>
               <button class="product__add">Add to cart</button>
@@ -36,10 +38,6 @@ function renderCart(event) {
   console.log("Cart rendering...");
 }
 
-function renderAccount(event) {
-  console.log("Profile rendering...");
-}
-
 function addEventListeners() {
   Array.from(document.getElementsByClassName("product__add")).forEach(
     (button) => {
@@ -47,7 +45,6 @@ function addEventListeners() {
     }
   );
 
-  document.getElementById("products").addEventListener("click", renderShop);
+  document.getElementById("shop").addEventListener("click", renderShop);
   document.getElementById("cart").addEventListener("click", renderCart);
-  document.getElementById("account").addEventListener("click", renderAccount);
 }

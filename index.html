@@ -2,6 +2,12 @@
 <html>
   <head>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap"
+      rel="stylesheet"
+    />
     <title>E-shop</title>
     <script src="script.js" async></script>
   </head>
@@ -9,12 +15,49 @@
   <body>
     <div class="container">
       <nav class="navigation">
-        <a class="navigation__link" id="products">Products</a>
-        <a class="navigation__link" id="cart">Cart</a>
-        <a class="navigation__link" id="account">My Account</a>
+        <div class="navigation__links">
+          <a class="navigation__link" id="shop">Shop</a>
+          <a class="navigation__link" id="cart">Cart</a>
+        </div>
       </nav>
-      <div lcass="shop">
-        <div class="shop__grid">
+      <div class="content-container">
+        <div class="shop">
+          <div class="shop__heading">
+            <h1 class="shop__title">Shop</h1>
+            <span class="shop__breadcrumbs">HOME/SHOP</span>
+          </div>
+          <div class="shop__filter">
+            <span class="shop__filter__text">Showing 1-10 of 23 results</span>
+            <select name="sort" id="sort" class="shop__filter__sort">
+              <option value="default" selected="selected">
+                DEFAULT SORTING
+              </option>
+              <option value="other">OTHER SORTING</option>
+            </select>
+          </div>
+          <div class="shop__grid"></div>
+        </div>
+        <div class="sidebar">
+          <div class="sidebar__search">
+            <input type="text" placeholder="Search.." name="search" />
+          </div>
+          <div class="sidebar__posts">
+            <span>Recent Posts</span>
+            <hr />
+          </div>
+          <div class="sidebar__comments">
+            <span>Recent Comments</span>
+            <hr />
+          </div>
+          <div class="sidebar__archives">
+            <span>Archives</span>
+            <hr />
+          </div>
+          <div class="sidebar__categories">
+            <span>Categories</span>
+            <hr />
+          </div>
+        </div>
       </div>
     </div>
   </body>
