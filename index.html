@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="stylesheets/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -11,7 +11,7 @@
       rel="stylesheet"
     />
     <title>E-shop</title>
-    <script src="script.js" async></script>
+    <script type="module" src="script.js" async></script>
   </head>
 
   <body>
@@ -31,12 +31,15 @@
             <span class="shop__breadcrumbs">HOME/SHOP</span>
           </div>
           <div class="shop__filter">
-            <span class="shop__filter__text">Showing 1-10 of 23 results</span>
+            <span class="shop__filter__text"
+              >Showing <span id="filter__range">Loading...</span> of
+              <span id="filter__count">Loading...</span> results</span
+            >
             <select name="sort" id="sort" class="shop__filter__sort">
               <option value="default" selected="selected">
-                DEFAULT SORTING
+                Default sorting
               </option>
-              <option value="other">OTHER SORTING</option>
+              <option value="other">Other sorting</option>
             </select>
           </div>
           <div class="shop__grid"></div>
@@ -54,29 +57,29 @@
             <span class="sidebar__box__title">Recent Posts</span>
             <hr />
             <ul>
-              <li>Honest Qualities</li>
-              <li>Breadcause you're worth it</li>
-              <li>Your tray of goodies</li>
-              <li>Are Carbs for you?</li>
-              <li>Healthy Bread Solutions</li>
+              <li><a>Honest Qualities</a></li>
+              <li><a>Breadcause you're worth it</a></li>
+              <li><a>Your tray of goodies</a></li>
+              <li><a>Are Carbs for you?</a></li>
+              <li><a>Healthy Bread Solutions</a></li>
             </ul>
           </div>
           <div class="sidebar__box sidebar__box--comments">
             <span class="sidebar__box__title">Recent Comments</span>
             <hr />
             <ul>
-              <li>Maria on Woo Ninja</li>
-              <li>Maria on Premium Quality</li>
-              <li>Maria on Woo Logo</li>
-              <li>Maria on Ninja Silhoutte</li>
-              <li>Maria on Ship Your Idea</li>
+              <li><a>Maria on Woo Ninja</a></li>
+              <li><a>Maria on Premium Quality</a></li>
+              <li><a>Maria on Woo Logo</a></li>
+              <li><a>Maria on Ninja Silhoutte</a></li>
+              <li><a>Maria on Ship Your Idea</a></li>
             </ul>
           </div>
           <div class="sidebar__box sidebar__box--archives">
             <span class="sidebar__box__title">Archives</span>
             <hr />
             <ul>
-              <li>November 2016</li>
+              <li><a>November 2016</a></li>
             </ul>
           </div>
           <div class="sidebar__box sidebar__box--categories">
@@ -85,6 +88,9 @@
           </div>
         </div>
       </div>
+      <footer class="footer">
+        <span>&copy 2022 Copyright: Dautartas Valvonis</span>
+      </footer>
     </div>
   </body>
 </html>

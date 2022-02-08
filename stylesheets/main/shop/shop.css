@@ -1,0 +1,45 @@
+@import "./product/product.css";
+
+.shop {
+  background-color: rgb(241, 237, 237);
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+  box-shadow: 0px 0px 10px 5px black;
+}
+
+.shop__heading {
+  margin: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shop__title {
+}
+
+.shop__breadcrumbs {
+}
+
+.shop__filter {
+  display: flex;
+  margin: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(223, 215, 215);
+  height: 3rem;
+  padding: 1.5rem;
+}
+
+.shop__filter__text {
+}
+
+.shop__filter__sort {
+}
+
+.shop__grid {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: 1.5rem;
+}

@@ -1,0 +1,24 @@
+.navigation__link:hover {
+  color: rgb(127, 127, 161);
+  cursor: pointer;
+}
+
+.product__add:hover {
+  font-weight: bold;
+  animation-name: addButton;
+  animation-duration: 0.5s;
+  width: 60%;
+}
+
+.sidebar__box > ul > li:hover {
+  color: navy;
+}
+
+@keyframes addButton {
+  from {
+    width: 50%;
+  }
+  to {
+    width: 60%;
+  }
+}
