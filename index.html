@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,13 +16,15 @@
 
   <body>
     <div class="container">
-      <nav class="navigation">
-        <div class="navigation__links">
-          <a class="navigation__link" id="shop">Shop</a>
-          <a class="navigation__link" id="cart">Cart</a>
-        </div>
-      </nav>
-      <div class="content-container">
+      <header class="header">
+        <nav class="navigation">
+          <div class="navigation__links">
+            <a class="navigation__link" id="shop">Shop</a>
+            <a class="navigation__link" id="cart">Cart</a>
+          </div>
+        </nav>
+      </header>
+      <div class="main">
         <div class="shop">
           <div class="shop__heading">
             <h1 class="shop__title">Shop</h1>
@@ -39,21 +43,43 @@
         </div>
         <div class="sidebar">
           <div class="sidebar__search">
-            <input type="text" placeholder="Search.." name="search" />
+            <input
+              type="text"
+              placeholder="Search.."
+              name="search"
+              class="sidebar__search__input"
+            />
           </div>
-          <div class="sidebar__posts">
-            <span>Recent Posts</span>
+          <div class="sidebar__box sidebar__box--posts">
+            <span class="sidebar__box__title">Recent Posts</span>
             <hr />
+            <ul>
+              <li>Honest Qualities</li>
+              <li>Breadcause you're worth it</li>
+              <li>Your tray of goodies</li>
+              <li>Are Carbs for you?</li>
+              <li>Healthy Bread Solutions</li>
+            </ul>
           </div>
-          <div class="sidebar__comments">
-            <span>Recent Comments</span>
+          <div class="sidebar__box sidebar__box--comments">
+            <span class="sidebar__box__title">Recent Comments</span>
             <hr />
+            <ul>
+              <li>Maria on Woo Ninja</li>
+              <li>Maria on Premium Quality</li>
+              <li>Maria on Woo Logo</li>
+              <li>Maria on Ninja Silhoutte</li>
+              <li>Maria on Ship Your Idea</li>
+            </ul>
           </div>
-          <div class="sidebar__archives">
-            <span>Archives</span>
+          <div class="sidebar__box sidebar__box--archives">
+            <span class="sidebar__box__title">Archives</span>
             <hr />
+            <ul>
+              <li>November 2016</li>
+            </ul>
           </div>
-          <div class="sidebar__categories">
+          <div class="sidebar__box sidebar__box--categories">
             <span>Categories</span>
             <hr />
           </div>
@@ -62,3 +88,7 @@
     </div>
   </body>
 </html>
+
+<!-- TODO: 
+  *scroll to top button
+-->
