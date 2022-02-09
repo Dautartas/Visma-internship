@@ -1,4 +1,4 @@
-const dataPath = "../data/data.json";
+const dataPath = "../data/products.json";
 
 export async function loadData() {
   try {

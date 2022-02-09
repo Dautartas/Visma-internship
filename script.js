@@ -1,4 +1,4 @@
-import { loadData } from "./services/dataService.js";
+import { loadData } from "./services/products.service.js";
 let productsLength = await renderShop();
 filter();
 addEventListeners();
@@ -10,9 +10,6 @@ async function renderShop() {
   data["products"].forEach((product) => {
     shopGrid.appendChild(renderProduct(product));
   });
-  console.log(data);
-  console.log(data["products"]);
-  console.log(data["products"].length);
   return data["products"].length;
 }
 
