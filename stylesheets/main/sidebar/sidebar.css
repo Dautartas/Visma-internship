@@ -4,7 +4,7 @@
   flex-grow: 1;
   flex-direction: column;
 }
-.sidebar > div {
+.sidebar > section {
   background-color: rgb(241, 237, 237);
   margin-bottom: 1.5rem;
 }
@@ -14,18 +14,18 @@
   display: flex;
 }
 
-.sidebar__search__input {
+.sidebar__search-input {
   width: 100%;
 }
 
-.sidebar__box {
+.sidebar__section {
   padding: 1.5rem;
 }
 
-.sidebar__box__title {
+.sidebar__section-title {
 }
 
-.sidebar__box > ul {
+.sidebar__section > ul {
   list-style-type: none;
   padding: 0;
   margin: 0;

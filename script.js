@@ -34,47 +34,41 @@ function renderProduct(data) {
   let name = data.name;
   if (name.length > 20) name = name.substring(0, 17) + "...";
 
-  const product__image = document.createElement("img");
-  product__image.className = productPrefix + "__image";
-  product__image.src = data.image;
-  product__image.alt = productPrefix;
+  const productImage = document.createElement("img");
+  productImage.className = productPrefix + "__image";
+  productImage.src = data.image;
+  productImage.alt = productPrefix;
 
-  const product__info__name = document.createElement("span");
-  product__info__name.className = productPrefix + "__info__name";
-  product__info__name.title = data.name;
-  product__info__name.appendChild(document.createTextNode(name));
+  const productInfoName = document.createElement("span");
+  productInfoName.className = productPrefix + "__info-name";
+  productInfoName.title = data.name;
+  productInfoName.appendChild(document.createTextNode(name));
 
-  const product__info__price = document.createElement("span");
-  product__info__price.className = productPrefix + "__info__price";
-  product__info__price.appendChild(document.createTextNode(`${data.price} €`));
+  const productInfoPrice = document.createElement("span");
+  productInfoPrice.className = productPrefix + "__info-price";
+  productInfoPrice.appendChild(document.createTextNode(`${data.price} €`));
 
-  const product__info = document.createElement("div");
-  product__info.className = productPrefix + "__info";
-  product__info.appendChild(product__info__name);
-  product__info.appendChild(product__info__price);
+  const productInfo = document.createElement("div");
+  productInfo.className = productPrefix + "__info";
+  productInfo.appendChild(productInfoName);
+  productInfo.appendChild(productInfoPrice);
 
-  const product__add = document.createElement("button");
-  product__add.className = productPrefix + "__add";
-  product__add.appendChild(document.createTextNode("Add to cart"));
-
-  if (data.sale === "true") {
-    const product__sale = document.createElement("span");
-    product__sale.className = productPrefix + "__sale";
-    product__sale.appendChild(document.createTextNode("SALE"));
-  }
+  const productAdd = document.createElement("button");
+  productAdd.className = productPrefix + "__add";
+  productAdd.appendChild(document.createTextNode("Add to cart"));
 
   const product = document.createElement("div");
   product.className = productPrefix;
   product.id = `${productPrefix}-${data.id}`;
-  product.appendChild(product__image);
-  product.appendChild(product__info);
-  product.appendChild(product__add);
+  product.appendChild(productImage);
+  product.appendChild(productInfo);
+  product.appendChild(productAdd);
 
   if (data.sale === "true") {
-    const product__sale = document.createElement("span");
-    product__sale.className = productPrefix + "__sale";
-    product__sale.appendChild(document.createTextNode("SALE"));
-    product.appendChild(product__sale);
+    const productSale = document.createElement("span");
+    productSale.className = productPrefix + "__sale";
+    productSale.appendChild(document.createTextNode("SALE"));
+    product.appendChild(productSale);
   }
   return product;
 }

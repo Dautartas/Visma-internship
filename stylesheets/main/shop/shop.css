@@ -3,7 +3,6 @@
 .shop {
   background-color: rgb(241, 237, 237);
   display: flex;
-  width: 80%;
   flex-direction: column;
   box-shadow: 0px 0px 10px 5px black;
 }
@@ -15,10 +14,10 @@
   align-items: center;
 }
 
-.shop__title {
+.shop__heading-title {
 }
 
-.shop__breadcrumbs {
+.shop__heading-breadcrumbs {
 }
 
 .shop__filter {
@@ -31,10 +30,10 @@
   padding: 1.5rem;
 }
 
-.shop__filter__text {
+.shop__filter-text {
 }
 
-.shop__filter__sort {
+.shop__filter-sort {
 }
 
 .shop__grid {

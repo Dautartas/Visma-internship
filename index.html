@@ -31,37 +31,39 @@
           </div>
         </nav>
       </header>
-      <div class="main">
-        <div class="shop">
-          <div class="shop__heading">
-            <h1 class="shop__title">Shop</h1>
-            <span class="shop__breadcrumbs">HOME/SHOP</span>
-          </div>
-          <div class="shop__filter">
-            <span class="shop__filter__text"
-              >Showing <span id="filter__range">Loading...</span> of
-              <span id="filter__count">Loading...</span> results</span
-            >
-            <select name="sort" id="sort" class="shop__filter__sort">
-              <option value="default" selected="selected">
-                Default sorting
-              </option>
-              <option value="other">Other sorting</option>
-            </select>
-          </div>
-          <div class="shop__grid"></div>
-        </div>
+      <div class="main-wrapper">
+        <main class="main">
+          <section class="shop">
+            <div class="shop__heading">
+              <h1 class="shop__heading-title">Shop</h1>
+              <span class="shop__heading-breadcrumbs">HOME/SHOP</span>
+            </div>
+            <div class="shop__filter">
+              <span class="shop__filter-text"
+                >Showing <span id="filter__range">Loading...</span> of
+                <span id="filter__count">Loading...</span> results</span
+              >
+              <select name="sort" id="sort" class="shop__filter-sort">
+                <option value="default" selected="selected">
+                  Default sorting
+                </option>
+                <option value="other">Other sorting</option>
+              </select>
+            </div>
+            <div class="shop__grid"></div>
+          </section>
+        </main>
         <div class="sidebar">
-          <div class="sidebar__search">
+          <section class="sidebar__search">
             <input
               type="text"
               placeholder="Search.."
               name="search"
-              class="sidebar__search__input"
+              class="sidebar__search-input"
             />
-          </div>
-          <div class="sidebar__box sidebar__box--posts">
-            <span class="sidebar__box__title">Recent Posts</span>
+          </section>
+          <section class="sidebar__section sidebar__section--posts">
+            <h3 class="sidebar__section-title">Recent Posts</h3>
             <hr />
             <ul>
               <li><a>Honest Qualities</a></li>
@@ -70,9 +72,9 @@
               <li><a>Are Carbs for you?</a></li>
               <li><a>Healthy Bread Solutions</a></li>
             </ul>
-          </div>
-          <div class="sidebar__box sidebar__box--comments">
-            <span class="sidebar__box__title">Recent Comments</span>
+          </section>
+          <section class="sidebar__section sidebar__section--comments">
+            <h3 class="sidebar__section-title">Recent Comments</h3>
             <hr />
             <ul>
               <li><a>Maria on Woo Ninja</a></li>
@@ -81,18 +83,18 @@
               <li><a>Maria on Ninja Silhoutte</a></li>
               <li><a>Maria on Ship Your Idea</a></li>
             </ul>
-          </div>
-          <div class="sidebar__box sidebar__box--archives">
-            <span class="sidebar__box__title">Archives</span>
+          </section>
+          <section class="sidebar__section sidebar__section--archives">
+            <h3 class="sidebar__section-title">Archives</h3>
             <hr />
             <ul>
               <li><a>November 2016</a></li>
             </ul>
-          </div>
-          <div class="sidebar__box sidebar__box--categories">
-            <span>Categories</span>
+          </section>
+          <section class="sidebar__section sidebar__section--categories">
+            <h3>Categories</h3>
             <hr />
-          </div>
+          </section>
         </div>
       </div>
       <footer class="footer">

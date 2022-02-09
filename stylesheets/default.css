@@ -40,9 +40,13 @@ body {
   display: flex;
 }
 
-.main {
+.main-wrapper {
   display: flex;
   margin: 1.5rem 5rem 1.5rem 5rem;
+}
+
+.main {
+  width: 80%;
 }
 
 .footer {
