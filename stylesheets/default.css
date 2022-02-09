@@ -38,6 +38,11 @@ body {
 
 .navigation__link {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navigation__link-icon--cart {
 }
 
 .main-wrapper {

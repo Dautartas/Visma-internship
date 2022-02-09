@@ -29,10 +29,8 @@ async function renderShop() {
  * </div>
  */
 function renderProduct(data) {
+  let onSale = data.onSale;
   let productPrefix = "product";
-
-  let name = data.name;
-  if (name.length > 20) name = name.substring(0, 17) + "...";
 
   const productImage = document.createElement("img");
   productImage.className = productPrefix + "__image";
@@ -42,15 +40,22 @@ function renderProduct(data) {
   const productInfoName = document.createElement("span");
   productInfoName.className = productPrefix + "__info-name";
   productInfoName.title = data.name;
-  productInfoName.appendChild(document.createTextNode(name));
+  productInfoName.appendChild(document.createTextNode(data.name));
 
   const productInfoPrice = document.createElement("span");
   productInfoPrice.className = productPrefix + "__info-price";
   productInfoPrice.appendChild(document.createTextNode(`${data.price} €`));
 
+  const productInfoOldPrice = document.createElement("span");
+  if (onSale === "true") {
+    productInfoOldPrice.className = productPrefix + "__info-price--old";
+    productInfoOldPrice.appendChild(document.createTextNode(`99.99 €`));
+  }
+
   const productInfo = document.createElement("div");
   productInfo.className = productPrefix + "__info";
   productInfo.appendChild(productInfoName);
+  productInfo.appendChild(productInfoOldPrice);
   productInfo.appendChild(productInfoPrice);
 
   const productAdd = document.createElement("button");
@@ -64,11 +69,8 @@ function renderProduct(data) {
   product.appendChild(productInfo);
   product.appendChild(productAdd);
 
-  if (data.sale === "true") {
-    const productSale = document.createElement("span");
-    productSale.className = productPrefix + "__sale";
-    productSale.appendChild(document.createTextNode("SALE"));
-    product.appendChild(productSale);
+  if (onSale === "true") {
+    product.classList.add("sale");
   }
   return product;
 }
@@ -90,11 +92,11 @@ function setAmount() {
 }
 
 function addToCart(event) {
-  console.log("Adding to cart..." + event);
+  alert("Adding to cart..." + event);
 }
 
 function renderCart(event) {
-  console.log("Cart rendering..." + event);
+  alert("Cart rendering..." + event);
 }
 
 function addEventListeners() {

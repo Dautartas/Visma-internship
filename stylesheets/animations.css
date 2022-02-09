@@ -4,21 +4,14 @@
 }
 
 .product__add:hover {
-  font-weight: bold;
-  animation-name: addButton;
-  animation-duration: 0.5s;
+  /* font-weight: bold; */
   width: 60%;
 }
 
-.sidebar__box > ul > li:hover {
-  color: navy;
+.product:hover {
+  box-shadow: 0px 0px 5px 10px navy;
 }
 
-@keyframes addButton {
-  from {
-    width: 50%;
-  }
-  to {
-    width: 60%;
-  }
+.sidebar__section > ul > li:hover {
+  color: navy;
 }
