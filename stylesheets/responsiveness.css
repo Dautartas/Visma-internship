@@ -17,4 +17,7 @@
   .shop__filter {
     flex-direction: column;
   }
+  .navigation__link-icon--cart {
+    display: none;
+  }
 }
