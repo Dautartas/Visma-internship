@@ -5,7 +5,7 @@ import {
   archivesDataPath,
   commentsDataPath,
   postsDataPath,
-} from "./paths.js";
+} from "./services/index.js";
 let productsLength = await renderShop();
 filter();
 addEventListeners();
