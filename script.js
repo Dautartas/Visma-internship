@@ -1,17 +1,18 @@
 import { loadData } from "./services/data.service.js";
-import {
-  productsDataPath,
-  categoriesDataPath,
-  archivesDataPath,
-  commentsDataPath,
-  postsDataPath,
-} from "./services/index.js";
+import { getProducts } from "./services/index.js";
 
 const INDEX_PAGE = "index";
 const CART_PAGE = "cart";
 let productsLength;
-loadPage();
+// await loadSidebar();
+await loadPage();
 addEventListeners();
+
+// async function loadSidebar() {
+//   await loadPosts();
+// } //TODO: finish loadSidebar
+
+// async function loadPosts() {}
 
 async function loadPage() {
   let pattern = /([^\/]+)(?=\.\w+$)/;
@@ -23,27 +24,25 @@ async function loadPage() {
     renderCart();
   }
 }
-
 async function renderShop() {
   let shopGrid = document.querySelector(".shop__grid");
   shopGrid.innerHTML = "";
-  let data = await loadData(productsDataPath);
-  data["products"].forEach((product) => {
+  let data = await loadData(getProducts);
+  data.forEach((product) => {
     shopGrid.appendChild(renderProduct(product));
   });
-  return data["products"].length;
+  return data.length;
 }
 
 async function renderCart() {
   let cartGrid = document.querySelector(".shop__grid");
   cartGrid.innerHTML = "";
-  let data = await loadData(productsDataPath);
-  if (data["products"].length >= 2)
-    data["products"] = data["products"].slice(0, 2);
-  data["products"].forEach((product) => {
+  let data = await loadData(getProducts);
+  if (data.length >= 2) data = data.slice(0, 2);
+  data.forEach((product) => {
     cartGrid.appendChild(renderProduct(product));
   });
-  return data["products"].length;
+  return data.length;
 }
 
 /**
