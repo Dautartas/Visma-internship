@@ -106,6 +106,10 @@ function renderCart(event) {
   alert("Cart rendering..." + event);
 }
 
+function addItem() {
+  alert("Item added...");
+}
+
 function addEventListeners() {
   Array.from(document.getElementsByClassName("product__add")).forEach(
     (button) => {
@@ -115,4 +119,5 @@ function addEventListeners() {
 
   document.getElementById("shop").addEventListener("click", renderShop);
   document.getElementById("cart").addEventListener("click", renderCart);
+  document.getElementById("newItemButton").addEventListener("click", addItem);
 }

@@ -15,3 +15,7 @@
 .sidebar__section > ul > li:hover {
   color: navy;
 }
+
+#newItemAddButton:hover {
+  background-size: cover;
+}
