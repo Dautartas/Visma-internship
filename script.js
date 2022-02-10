@@ -1,4 +1,11 @@
-import { loadData } from "./services/products.service.js";
+import { loadData } from "./services/data.service.js";
+import {
+  productsDataPath,
+  categoriesDataPath,
+  archivesDataPath,
+  commentsDataPath,
+  postsDataPath,
+} from "./paths.js";
 let productsLength = await renderShop();
 filter();
 addEventListeners();
@@ -6,7 +13,7 @@ addEventListeners();
 async function renderShop() {
   let shopGrid = document.querySelector(".shop__grid");
   shopGrid.innerHTML = "";
-  let data = await loadData();
+  let data = await loadData(productsDataPath);
   data["products"].forEach((product) => {
     shopGrid.appendChild(renderProduct(product));
   });

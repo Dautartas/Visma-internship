@@ -1,8 +1,6 @@
-const dataPath = "../data/products.json";
-
-export async function loadData() {
+export async function loadData(path) {
   try {
-    const response = await fetch(dataPath);
+    const response = await fetch(path);
     const data = await response.json();
     return data;
   } catch (err) {
