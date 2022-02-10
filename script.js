@@ -6,9 +6,23 @@ import {
   commentsDataPath,
   postsDataPath,
 } from "./services/index.js";
-let productsLength = await renderShop();
-filter();
+
+const INDEX_PAGE = "index";
+const CART_PAGE = "cart";
+let productsLength;
+loadPage();
 addEventListeners();
+
+async function loadPage() {
+  let pattern = /([^\/]+)(?=\.\w+$)/;
+  let page = window.location.pathname.match(pattern)[0]; //returns filename without extension
+  if (page === INDEX_PAGE) {
+    productsLength = await renderShop();
+    filter();
+  } else if (page === CART_PAGE) {
+    renderCart();
+  }
+}
 
 async function renderShop() {
   let shopGrid = document.querySelector(".shop__grid");
@@ -16,6 +30,18 @@ async function renderShop() {
   let data = await loadData(productsDataPath);
   data["products"].forEach((product) => {
     shopGrid.appendChild(renderProduct(product));
+  });
+  return data["products"].length;
+}
+
+async function renderCart() {
+  let cartGrid = document.querySelector(".shop__grid");
+  cartGrid.innerHTML = "";
+  let data = await loadData(productsDataPath);
+  if (data["products"].length >= 2)
+    data["products"] = data["products"].slice(0, 2);
+  data["products"].forEach((product) => {
+    cartGrid.appendChild(renderProduct(product));
   });
   return data["products"].length;
 }
@@ -102,10 +128,6 @@ function addToCart(event) {
   alert("Adding to cart..." + event);
 }
 
-function renderCart(event) {
-  alert("Cart rendering..." + event);
-}
-
 function addItem() {
   alert("Item added...");
 }
@@ -117,7 +139,7 @@ function addEventListeners() {
     }
   );
 
-  document.getElementById("shop").addEventListener("click", renderShop);
-  document.getElementById("cart").addEventListener("click", renderCart);
+  // document.getElementById("shop").addEventListener("click", renderShop);
+  // document.getElementById("cart").addEventListener("click", renderCart);
   document.getElementById("newItemButton").addEventListener("click", addItem);
 }
