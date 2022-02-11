@@ -1,8 +1,9 @@
-import { loadData } from "./services/data.service.js";
-import { getProducts } from "./services/index.js";
-
+import { getProducts } from "/services/products.service.js";
+import { renderAddForm } from "/components/Add-form/AddForm.js";
 const INDEX_PAGE = "index";
 const CART_PAGE = "cart";
+const PRODUCT_PREFIX = "product";
+
 let productsLength;
 // await loadSidebar();
 await loadPage();
@@ -16,18 +17,20 @@ addEventListeners();
 
 async function loadPage() {
   let pattern = /([^\/]+)(?=\.\w+$)/;
-  let page = window.location.pathname.match(pattern)[0]; //returns filename without extension
-  if (page === INDEX_PAGE) {
+  let page = window.location.pathname.match(pattern); //returns filename without extension
+  if (!page || page[0] === INDEX_PAGE) {
     productsLength = await renderShop();
     filter();
-  } else if (page === CART_PAGE) {
+  } else if (page[0] === CART_PAGE) {
     renderCart();
   }
 }
+
 async function renderShop() {
   let shopGrid = document.querySelector(".shop__grid");
   shopGrid.innerHTML = "";
-  let data = await loadData(getProducts);
+  let data = await getProducts();
+
   data.forEach((product) => {
     shopGrid.appendChild(renderProduct(product));
   });
@@ -37,7 +40,7 @@ async function renderShop() {
 async function renderCart() {
   let cartGrid = document.querySelector(".shop__grid");
   cartGrid.innerHTML = "";
-  let data = await loadData(getProducts);
+  let data = await getProducts();
   if (data.length >= 2) data = data.slice(0, 2);
   data.forEach((product) => {
     cartGrid.appendChild(renderProduct(product));
@@ -62,41 +65,39 @@ async function renderCart() {
  */
 function renderProduct(data) {
   let onSale = data.onSale;
-  let productPrefix = "product";
-
   const productImage = document.createElement("img");
-  productImage.className = productPrefix + "__image";
+  productImage.className = PRODUCT_PREFIX + "__image";
   productImage.src = data.image;
-  productImage.alt = productPrefix;
+  productImage.alt = PRODUCT_PREFIX;
 
   const productInfoName = document.createElement("span");
-  productInfoName.className = productPrefix + "__info-name";
+  productInfoName.className = PRODUCT_PREFIX + "__info-name";
   productInfoName.title = data.name;
   productInfoName.appendChild(document.createTextNode(data.name));
 
   const productInfoPrice = document.createElement("span");
-  productInfoPrice.className = productPrefix + "__info-price";
+  productInfoPrice.className = PRODUCT_PREFIX + "__info-price";
   productInfoPrice.appendChild(document.createTextNode(`${data.price} €`));
 
   const productInfoOldPrice = document.createElement("span");
   if (onSale === "true") {
-    productInfoOldPrice.className = productPrefix + "__info-price--old";
+    productInfoOldPrice.className = PRODUCT_PREFIX + "__info-price--old";
     productInfoOldPrice.appendChild(document.createTextNode(`99.99 €`));
   }
 
   const productInfo = document.createElement("div");
-  productInfo.className = productPrefix + "__info";
+  productInfo.className = PRODUCT_PREFIX + "__info";
   productInfo.appendChild(productInfoName);
   productInfo.appendChild(productInfoOldPrice);
   productInfo.appendChild(productInfoPrice);
 
   const productAdd = document.createElement("button");
-  productAdd.className = productPrefix + "__add";
+  productAdd.className = PRODUCT_PREFIX + "__add";
   productAdd.appendChild(document.createTextNode("Add to cart"));
 
   const product = document.createElement("div");
-  product.className = productPrefix;
-  product.id = `${productPrefix}-${data.id}`;
+  product.className = PRODUCT_PREFIX;
+  product.id = `${PRODUCT_PREFIX}-${data.id}`;
   product.appendChild(productImage);
   product.appendChild(productInfo);
   product.appendChild(productAdd);
@@ -106,6 +107,7 @@ function renderProduct(data) {
   }
   return product;
 }
+
 /**
  * function that calculates data for shop filter box
  */
@@ -127,18 +129,15 @@ function addToCart(event) {
   alert("Adding to cart..." + event);
 }
 
-function addItem() {
-  alert("Item added...");
-}
-
 function addEventListeners() {
   Array.from(document.getElementsByClassName("product__add")).forEach(
     (button) => {
       button.addEventListener("click", addToCart);
     }
   );
-
   // document.getElementById("shop").addEventListener("click", renderShop);
   // document.getElementById("cart").addEventListener("click", renderCart);
-  document.getElementById("newItemButton").addEventListener("click", addItem);
+  document
+    .getElementById("newItemButton")
+    .addEventListener("click", renderAddForm);
 }
