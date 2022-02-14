@@ -1,4 +1,5 @@
 import { addProduct } from "../../services/products.service.js";
+import { colorName, colorPrice, validateForm } from "./validations.js";
 /**
  * function that renders product add form
  * <form>
@@ -11,13 +12,17 @@ import { addProduct } from "../../services/products.service.js";
  *    <input type="submit">
  * </form>
  */
-function validateForm() {}
+function submitForm(event) {
+  event.preventDefault();
+  if (validateForm(event.target)) addProduct(event);
+}
 
 export function renderAddForm() {
   //innerhtml
   const imageChoices = ["hat", "tshirt", "pants", "shoes"];
   const FORM_PREFIX = "form-add";
   const FORM_ID_PREFIX = "formAdd";
+  document.querySelector(".shop__filter").remove();
   document.querySelector(".shop__grid").innerHTML = `
     <form class=${FORM_PREFIX} id ="${FORM_ID_PREFIX}">
       <label for="${FORM_ID_PREFIX}Name" class="${FORM_PREFIX}__label">
@@ -64,6 +69,11 @@ export function renderAddForm() {
       >Add</button>
     </form>`;
 
-  const formAdd = document.getElementById(FORM_ID_PREFIX);
-  formAdd.addEventListener("submit", addProduct);
+  const formName = document.getElementById(`${FORM_ID_PREFIX}Name`);
+  formName.addEventListener("blur", colorName);
+  const formPrice = document.getElementById(`${FORM_ID_PREFIX}Price`);
+  formPrice.addEventListener("blur", colorPrice);
+
+  const form = document.getElementById(FORM_ID_PREFIX);
+  form.addEventListener("submit", submitForm);
 }
