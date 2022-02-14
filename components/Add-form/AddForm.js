@@ -1,4 +1,8 @@
-import { addProduct } from "../../services/products.service.js";
+import {
+  addProduct,
+  getProduct,
+  updateProduct,
+} from "../../services/products.service.js";
 import { colorName, colorPrice, validateForm } from "./validations.js";
 /**
  * function that renders product add form
@@ -12,16 +16,21 @@ import { colorName, colorPrice, validateForm } from "./validations.js";
  *    <input type="submit">
  * </form>
  */
+const FORM_PREFIX = "form-add";
+const FORM_ID_PREFIX = "formAdd";
+let currentProductId = null; // for editing product
 function submitForm(event) {
   event.preventDefault();
-  if (validateForm(event.target)) addProduct(event);
+  if (validateForm(event.target)) addProduct(event, id);
+}
+
+function submitEditedForm(event) {
+  event.preventDefault();
+  if (validateForm(event.target)) updateProduct(event, currentProductId);
 }
 
 export function renderAddForm() {
-  //innerhtml
   const imageChoices = ["hat", "tshirt", "pants", "shoes"];
-  const FORM_PREFIX = "form-add";
-  const FORM_ID_PREFIX = "formAdd";
   document.querySelector(".shop__filter").remove();
   document.querySelector(".shop__grid").innerHTML = `
     <form class=${FORM_PREFIX} id ="${FORM_ID_PREFIX}">
@@ -76,4 +85,20 @@ export function renderAddForm() {
 
   const form = document.getElementById(FORM_ID_PREFIX);
   form.addEventListener("submit", submitForm);
+}
+
+export async function fillAddForm(id) {
+  currentProductId = id;
+  let product = await getProduct(id);
+  document.getElementById(`${FORM_ID_PREFIX}Name`).value = product.name;
+  document.getElementById(`${FORM_ID_PREFIX}Price`).value = product.price;
+  document.getElementById(`${FORM_ID_PREFIX}Image`).value = product.image.slice(
+    7,
+    -4
+  ); // slice removes assets/ in the front and .png in the back
+  document.getElementById(`${FORM_ID_PREFIX}Sale`).checked = product.onSale;
+
+  const form = document.getElementById(FORM_ID_PREFIX);
+  form.removeEventListener("submit", submitForm);
+  form.addEventListener("submit", submitEditedForm);
 }

@@ -18,7 +18,7 @@ export function renderProduct(data) {
   const PRODUCT_PREFIX = "product";
 
   let productClass = PRODUCT_PREFIX;
-  if (data.onSale === "true") {
+  if (data.onSale === true) {
     productClass += " sale";
   }
   return `<div class="${productClass}" id="${PRODUCT_PREFIX}-${data.id}">

@@ -7,7 +7,7 @@ export async function renderCart() {
   let data = await getProducts();
   if (data.length >= 2) data = data.slice(0, 2);
   data.forEach((product) => {
-    cartGrid.appendChild(renderProduct(product));
+    cartGrid.innerHTML += renderProduct(product);
   });
   return data.length;
 }
