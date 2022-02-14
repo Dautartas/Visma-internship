@@ -1,3 +1,4 @@
+import { addProduct } from "../../services/products.service.js";
 /**
  * function that renders product add form
  * <form>
@@ -10,8 +11,10 @@
  *    <input type="submit">
  * </form>
  */
+function validateForm() {}
 
 export function renderAddForm() {
+  //innerhtml
   const FORM_PREFIX = "form-add";
   const FORM_ID_PREFIX = "formAdd";
   let shopGrid = document.querySelector(".shop__grid");
@@ -75,6 +78,9 @@ export function renderAddForm() {
     FORM_PREFIX + "__input",
     FORM_PREFIX + "__input--submit"
   );
+
+  productAddSubmit.id = FORM_ID_PREFIX + "Submit";
+
   productAddSubmit.type = "submit";
   productAddSubmit.value = "Add";
 
@@ -133,6 +139,7 @@ export function renderAddForm() {
     productAddSale,
     productAddSubmit
   );
+  productAddSubmit.addEventListener("click", addProduct);
 
   shopGrid.append(productAddForm);
 }

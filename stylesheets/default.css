@@ -30,7 +30,7 @@ body {
 
 .navigation__links {
   display: flex;
-  width: 100%; /*FIXME:*/
+  width: 100%; /* FIXME:*/
   justify-content: space-around;
   align-items: center;
   font-weight: bold;

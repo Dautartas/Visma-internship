@@ -61,6 +61,27 @@
       "price": "3.02",
       "image": "assets/product.png",
       "onSale": "true"
+    },
+    {
+      "name": "TEST DATA",
+      "price": "3.0",
+      "image": "assets/product.png",
+      "onSale": "true",
+      "id": 11
+    },
+    {
+      "name": "TEST DATA",
+      "price": "3.0",
+      "image": "assets/product.png",
+      "onSale": "true",
+      "id": 12
+    },
+    {
+      "name": "TEST DATA",
+      "price": "3.0",
+      "image": "assets/product.png",
+      "onSale": "true",
+      "id": 13
     }
   ],
   "posts": [

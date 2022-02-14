@@ -128,7 +128,9 @@ function setAmount() {
 function addToCart(event) {
   alert("Adding to cart..." + event);
 }
-
+function addProduct(event) {
+  alert("Product added..." + event);
+}
 function addEventListeners() {
   Array.from(document.getElementsByClassName("product__add")).forEach(
     (button) => {
@@ -137,7 +139,12 @@ function addEventListeners() {
   );
   // document.getElementById("shop").addEventListener("click", renderShop);
   // document.getElementById("cart").addEventListener("click", renderCart);
+
   document
     .getElementById("newItemButton")
     .addEventListener("click", renderAddForm);
+
+  // document
+  //   .getElementById("formAddSubmit")
+  //   .addEventListener("click", addProduct);
 }
