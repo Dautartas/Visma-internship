@@ -89,6 +89,13 @@
       "image": "assets/shoes.png",
       "onSale": "true",
       "id": 14
+    },
+    {
+      "name": "Sveiki",
+      "price": "22",
+      "image": "assets/hat.png",
+      "onSale": "true",
+      "id": 15
     }
   ],
   "posts": [

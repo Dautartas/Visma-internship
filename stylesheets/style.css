@@ -1,6 +1,4 @@
 @import "default.css";
-@import "main/shop/shop.css";
-@import "main/sidebar/sidebar.css";
 @import "../components/styles.css";
 @import "animations.css";
 @import "responsiveness.css";
