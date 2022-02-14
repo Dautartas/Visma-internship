@@ -9,7 +9,7 @@ export async function renderShop() {
   let data = await getProducts();
 
   data.forEach((product) => {
-    shopGrid.appendChild(renderProduct(product));
+    shopGrid.innerHTML += renderProduct(product);
   });
   addProductEventListeners();
   return data.length;
@@ -17,6 +17,11 @@ export async function renderShop() {
 
 function addToCart(event) {
   alert("Adding to cart..." + event);
+}
+
+function editProduct(event) {
+  let id = event.target.id.split("-")[1];
+  alert(`Edit product with id=${id}`);
 }
 
 function addShopEventListeners() {
@@ -29,6 +34,11 @@ function addProductEventListeners() {
   Array.from(document.getElementsByClassName("product__add")).forEach(
     (button) => {
       button.addEventListener("click", addToCart);
+    }
+  );
+  Array.from(document.getElementsByClassName("product__edit")).forEach(
+    (button) => {
+      button.addEventListener("click", editProduct);
     }
   );
 }
