@@ -15,131 +15,55 @@ function validateForm() {}
 
 export function renderAddForm() {
   //innerhtml
+  const imageChoices = ["hat", "tshirt", "pants", "shoes"];
   const FORM_PREFIX = "form-add";
   const FORM_ID_PREFIX = "formAdd";
-  let shopGrid = document.querySelector(".shop__grid");
-  shopGrid.innerHTML = "";
-  //-----------------------------------------------------------------------
+  document.querySelector(".shop__grid").innerHTML = `
+    <form class=${FORM_PREFIX} id ="${FORM_ID_PREFIX}">
+      <label for="${FORM_ID_PREFIX}Name" class="${FORM_PREFIX}__label">
+        Name
+      </label>
+      <input
+        class="${FORM_PREFIX}__input ${FORM_PREFIX}__input--text"
+        id="${FORM_ID_PREFIX}Name"
+        type="text"
+        name = "name"
+        placeholder="Name of the product"
+      />
+      <label for="${FORM_ID_PREFIX}Name" class="${FORM_PREFIX}__label">
+        Price
+      </label>
+      <input
+        class="${FORM_PREFIX}__input ${FORM_PREFIX}__input--text"
+        id="${FORM_ID_PREFIX}Price"
+        name = "price"
+        placeholder="Price of the product"
+      />
+      <label for="${FORM_ID_PREFIX}Image" class="${FORM_PREFIX}__label">
+        Select image
+      </label>
+      <select id="${FORM_ID_PREFIX}Image" name="image">
+        <option class="${FORM_PREFIX}__option">${imageChoices[0]}</option>
+        <option class="${FORM_PREFIX}__option">${imageChoices[1]}</option>
+        <option class="${FORM_PREFIX}__option">${imageChoices[2]}</option>
+        <option class="${FORM_PREFIX}__option">${imageChoices[3]}</option>
+      </select>
+      <label for="${FORM_ID_PREFIX}Sale" class="${FORM_PREFIX}__label">
+        On sale?
+      </label>
+      <input
+        class="${FORM_PREFIX}__input ${FORM_PREFIX}__input--checkbox"
+        id="${FORM_ID_PREFIX}Sale"
+        name ="onSale"
+        type="checkbox"
+      />
+      <button
+        class="${FORM_PREFIX}__input ${FORM_PREFIX}__input--submit"
+        id="${FORM_ID_PREFIX}Submit"
+        type="submit"
+      >Add</button>
+    </form>`;
 
-  const productAddName = document.createElement("input");
-  productAddName.classList.add(
-    FORM_PREFIX + "__input",
-    FORM_PREFIX + "__input--text"
-  );
-  productAddName.id = FORM_ID_PREFIX + "Name";
-
-  productAddName.type = "text";
-  productAddName.placeholder = "Name of the product";
-
-  const productAddNameLabel = document.createElement("label");
-  productAddNameLabel.appendChild(document.createTextNode("Name"));
-  productAddNameLabel.setAttribute("for", productAddName.id);
-  productAddNameLabel.classList.add(FORM_PREFIX + "__label");
-
-  //-----------------------------------------------------------------------
-
-  const productAddPrice = document.createElement("input");
-  productAddPrice.classList.add(
-    FORM_PREFIX + "__input",
-    FORM_PREFIX + "__input--text"
-  );
-
-  productAddPrice.id = FORM_ID_PREFIX + "Price";
-
-  productAddName.type = "text";
-  productAddPrice.placeholder = "Price of the product";
-
-  const productAddPriceLabel = document.createElement("label");
-  productAddPriceLabel.appendChild(document.createTextNode("Price"));
-  productAddPriceLabel.setAttribute("for", productAddName.id);
-  productAddPriceLabel.classList.add(FORM_PREFIX + "__label");
-
-  //-----------------------------------------------------------------------
-
-  const productAddSale = document.createElement("input");
-  productAddSale.classList.add(
-    FORM_PREFIX + "__input",
-    FORM_PREFIX + "__input--checkbox"
-  );
-
-  productAddSale.id = FORM_ID_PREFIX + "Sale";
-
-  productAddSale.type = "checkbox";
-
-  const productAddSaleLabel = document.createElement("label");
-  productAddSaleLabel.appendChild(document.createTextNode("On sale?"));
-  productAddSaleLabel.setAttribute("for", productAddSale.id);
-  productAddSaleLabel.classList.add(FORM_PREFIX + "__label");
-
-  //-----------------------------------------------------------------------
-
-  const productAddSubmit = document.createElement("input");
-  productAddSubmit.classList.add(
-    FORM_PREFIX + "__input",
-    FORM_PREFIX + "__input--submit"
-  );
-
-  productAddSubmit.id = FORM_ID_PREFIX + "Submit";
-
-  productAddSubmit.type = "submit";
-  productAddSubmit.value = "Add";
-
-  //-----------------------------------------------------------------------
-
-  const productAddImageOption1 = document.createElement("option");
-  productAddImageOption1.text = "option1";
-
-  const productAddImageOption2 = document.createElement("option");
-  productAddImageOption2.text = "option2";
-
-  const productAddImageOption3 = document.createElement("option");
-  productAddImageOption3.text = "option3";
-
-  const productAddImageOption4 = document.createElement("option");
-  productAddImageOption4.text = "option4";
-
-  productAddImageOption1.className =
-    productAddImageOption2.className =
-    productAddImageOption3.className =
-    productAddImageOption4.className =
-      FORM_PREFIX + "__option";
-
-  //-----------------------------------------------------------------------
-
-  const productAddImage = document.createElement("select");
-  productAddImage.class = FORM_PREFIX + "__image-select";
-
-  productAddImage.id = FORM_ID_PREFIX + "Image";
-
-  productAddImage.append(
-    productAddImageOption1,
-    productAddImageOption2,
-    productAddImageOption3,
-    productAddImageOption4
-  );
-
-  const productAddImageLabel = document.createElement("label");
-  productAddImageLabel.appendChild(document.createTextNode("Select image"));
-  productAddImageLabel.setAttribute("for", productAddImage.id);
-  productAddImageLabel.classList.add(FORM_PREFIX + "__label");
-
-  //-----------------------------------------------------------------------
-
-  const productAddForm = document.createElement("form");
-  productAddForm.className = FORM_PREFIX;
-
-  productAddForm.append(
-    productAddNameLabel,
-    productAddName,
-    productAddPriceLabel,
-    productAddPrice,
-    productAddImageLabel,
-    productAddImage,
-    productAddSaleLabel,
-    productAddSale,
-    productAddSubmit
-  );
-  productAddSubmit.addEventListener("click", addProduct);
-
-  shopGrid.append(productAddForm);
+  const formAdd = document.getElementById(FORM_ID_PREFIX);
+  formAdd.addEventListener("submit", addProduct);
 }

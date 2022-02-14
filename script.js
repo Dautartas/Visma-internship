@@ -7,7 +7,6 @@ const PRODUCT_PREFIX = "product";
 let productsLength;
 // await loadSidebar();
 await loadPage();
-addEventListeners();
 
 // async function loadSidebar() {
 //   await loadPosts();
@@ -21,6 +20,7 @@ async function loadPage() {
   if (!page || page[0] === INDEX_PAGE) {
     productsLength = await renderShop();
     filter();
+    addShopEventListeners();
   } else if (page[0] === CART_PAGE) {
     renderCart();
   }
@@ -131,7 +131,7 @@ function addToCart(event) {
 function addProduct(event) {
   alert("Product added..." + event);
 }
-function addEventListeners() {
+function addShopEventListeners() {
   Array.from(document.getElementsByClassName("product__add")).forEach(
     (button) => {
       button.addEventListener("click", addToCart);

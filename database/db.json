@@ -63,25 +63,32 @@
       "onSale": "true"
     },
     {
-      "name": "TEST DATA",
-      "price": "3.0",
-      "image": "assets/product.png",
+      "name": "asd",
+      "price": "asd",
+      "image": "assets/hat.png",
       "onSale": "true",
       "id": 11
     },
     {
-      "name": "TEST DATA",
-      "price": "3.0",
-      "image": "assets/product.png",
+      "name": "ads",
+      "price": "asd",
+      "image": "assets/tshirt.png",
       "onSale": "true",
       "id": 12
     },
     {
-      "name": "TEST DATA",
-      "price": "3.0",
-      "image": "assets/product.png",
+      "name": "asdasd",
+      "price": "asdasd",
+      "image": "assets/pants.png",
       "onSale": "true",
       "id": 13
+    },
+    {
+      "name": "asdasd",
+      "price": "adsasd",
+      "image": "assets/shoes.png",
+      "onSale": "true",
+      "id": 14
     }
   ],
   "posts": [

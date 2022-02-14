@@ -1,25 +1,23 @@
 import { baseUrl } from "./index.js";
 const url = baseUrl + "products";
 
-function mapProduct(product) {
+function chooseImage(option) {
+  return `assets/${option}.png`;
+}
+
+function mapProduct(data) {
   return {
-    name: product.name,
-    price: product.price,
-    image: product.image,
-    onSale: product.onSale,
+    name: data.name.value,
+    price: data.price.value,
+    image: chooseImage(data.image.value),
+    onSale: data.onSale.value == "on" ? "true" : "false",
   };
 }
 
 export async function addProduct(event) {
-  console.log(event.target);
-  alert(event);
-  // product = mapProduct(product);
-  product = {
-    name: "TEST DATA",
-    price: "3.0",
-    image: "assets/product.png",
-    onSale: "true",
-  };
+  event.preventDefault();
+  console.log(event);
+  let product = mapProduct(event.target);
   const response = await fetch(url, {
     method: "POST",
     headers: {
@@ -29,9 +27,9 @@ export async function addProduct(event) {
 
     body: JSON.stringify(product),
   });
-  const content = await response.json();
 
-  console.log(content);
+  // const content = await response.json();
+  // console.log(content);
 }
 
 export async function getProducts() {

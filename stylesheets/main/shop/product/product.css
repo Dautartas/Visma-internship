@@ -12,6 +12,7 @@
   position: relative;
   transition: box-shadow 0.3s;
   transition-timing-function: ease;
+  padding: 0.5rem;
 }
 
 .product__image {
