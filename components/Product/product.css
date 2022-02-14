@@ -12,6 +12,10 @@
   position: relative;
   transition: box-shadow 0.3s;
   transition-timing-function: ease;
+  padding: 0.5rem;
+}
+.product__edit {
+  visibility: hidden;
 }
 
 .product__image {
@@ -23,6 +27,7 @@
   flex-direction: column;
   align-items: center;
   width: 80%;
+  font-weight: bold;
 }
 
 .product__info-name {
@@ -53,11 +58,11 @@
   border: none;
   background-color: navy;
   color: white;
-  box-shadow: 2px 2px 5px grey;
   font-size: large;
   transition: width 0.5s;
   transition-timing-function: ease;
   box-shadow: 0px 0px 10px 5px navy;
+  font-weight: bold;
 }
 
 .product.sale::after {
@@ -65,6 +70,7 @@
   top: 5%;
   right: 3%;
   padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+  font-weight: bold;
 
   /* background: rgb(0, 0, 36); */
   background: linear-gradient(

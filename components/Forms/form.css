@@ -1,0 +1,17 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid navy 1px;
+}
+
+.form__input {
+  display: flex;
+  margin: 1.5rem;
+  justify-content: center;
+  width: 80%;
+}
+
+.form__label {
+  margin: 1.5rem;
+}

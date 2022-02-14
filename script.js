@@ -1,145 +1,19 @@
-import { loadData } from "./services/data.service.js";
-import {
-  productsDataPath,
-  categoriesDataPath,
-  archivesDataPath,
-  commentsDataPath,
-  postsDataPath,
-} from "./services/index.js";
-
+import { renderShop } from "/components/Shop/Shop.js";
+import { filter } from "/components/Filter/Filter.js";
+import { renderCart } from "/components/Cart/Cart.js";
 const INDEX_PAGE = "index";
 const CART_PAGE = "cart";
+
 let productsLength;
-loadPage();
-addEventListeners();
+await loadPage();
 
 async function loadPage() {
   let pattern = /([^\/]+)(?=\.\w+$)/;
-  let page = window.location.pathname.match(pattern)[0]; //returns filename without extension
-  if (page === INDEX_PAGE) {
+  let page = window.location.pathname.match(pattern); //returns filename without extension
+  if (!page || page[0] === INDEX_PAGE) {
     productsLength = await renderShop();
-    filter();
-  } else if (page === CART_PAGE) {
+    filter(productsLength);
+  } else if (page[0] === CART_PAGE) {
     renderCart();
   }
-}
-
-async function renderShop() {
-  let shopGrid = document.querySelector(".shop__grid");
-  shopGrid.innerHTML = "";
-  let data = await loadData(productsDataPath);
-  data["products"].forEach((product) => {
-    shopGrid.appendChild(renderProduct(product));
-  });
-  return data["products"].length;
-}
-
-async function renderCart() {
-  let cartGrid = document.querySelector(".shop__grid");
-  cartGrid.innerHTML = "";
-  let data = await loadData(productsDataPath);
-  if (data["products"].length >= 2)
-    data["products"] = data["products"].slice(0, 2);
-  data["products"].forEach((product) => {
-    cartGrid.appendChild(renderProduct(product));
-  });
-  return data["products"].length;
-}
-
-/**
- *
- * @param {object} data {id,name,price, image}
- *
- * @returns {object}
- * <div>
- *    <img>
- *    <div>
- *        <span></span>
- *        <span></span>
- *    </div>
- *    <button></button>
- *    <span></span> [Optional]
- * </div>
- */
-function renderProduct(data) {
-  let onSale = data.onSale;
-  let productPrefix = "product";
-
-  const productImage = document.createElement("img");
-  productImage.className = productPrefix + "__image";
-  productImage.src = data.image;
-  productImage.alt = productPrefix;
-
-  const productInfoName = document.createElement("span");
-  productInfoName.className = productPrefix + "__info-name";
-  productInfoName.title = data.name;
-  productInfoName.appendChild(document.createTextNode(data.name));
-
-  const productInfoPrice = document.createElement("span");
-  productInfoPrice.className = productPrefix + "__info-price";
-  productInfoPrice.appendChild(document.createTextNode(`${data.price} €`));
-
-  const productInfoOldPrice = document.createElement("span");
-  if (onSale === "true") {
-    productInfoOldPrice.className = productPrefix + "__info-price--old";
-    productInfoOldPrice.appendChild(document.createTextNode(`99.99 €`));
-  }
-
-  const productInfo = document.createElement("div");
-  productInfo.className = productPrefix + "__info";
-  productInfo.appendChild(productInfoName);
-  productInfo.appendChild(productInfoOldPrice);
-  productInfo.appendChild(productInfoPrice);
-
-  const productAdd = document.createElement("button");
-  productAdd.className = productPrefix + "__add";
-  productAdd.appendChild(document.createTextNode("Add to cart"));
-
-  const product = document.createElement("div");
-  product.className = productPrefix;
-  product.id = `${productPrefix}-${data.id}`;
-  product.appendChild(productImage);
-  product.appendChild(productInfo);
-  product.appendChild(productAdd);
-
-  if (onSale === "true") {
-    product.classList.add("sale");
-  }
-  return product;
-}
-/**
- * function that calculates data for shop filter box
- */
-function filter() {
-  setAmount();
-  setInterval();
-}
-
-function setInterval() {
-  document.getElementById("filter__range").innerHTML =
-    "1" + "-" + productsLength;
-}
-
-function setAmount() {
-  document.getElementById("filter__count").innerHTML = productsLength;
-}
-
-function addToCart(event) {
-  alert("Adding to cart..." + event);
-}
-
-function addItem() {
-  alert("Item added...");
-}
-
-function addEventListeners() {
-  Array.from(document.getElementsByClassName("product__add")).forEach(
-    (button) => {
-      button.addEventListener("click", addToCart);
-    }
-  );
-
-  // document.getElementById("shop").addEventListener("click", renderShop);
-  // document.getElementById("cart").addEventListener("click", renderCart);
-  document.getElementById("newItemButton").addEventListener("click", addItem);
 }
