@@ -11,14 +11,22 @@ export function colorPrice(event) {
 }
 
 export function validateForm(target) {
-  let flag = true;
   if (target.name.value === "" || target.name.value.length > 100) {
     alert("Product name cannot be empty or longer than 100 symbols.");
-    flag = false;
+    return false;
   }
   if (isNaN(target.price.value) || target.price.value <= 0) {
     alert("Product price cannot be empty, equal or lower than zero.");
-    flag = false;
+    return false;
   }
-  return flag;
+  if (target.formAddSubmit) {
+    target.formAddSubmit.disabled = true;
+    target.formAddSubmit.innerHTML = "Adding...";
+  } // preventing multiple submits
+  if (target.formEditSubmit) {
+    target.formEditSubmit.disabled = true;
+    target.formEditSubmit.innerHTML = "Updating...";
+  } // preventing multiple edits
+
+  return true;
 }

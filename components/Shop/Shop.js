@@ -1,7 +1,7 @@
 import { getProducts } from "../../services/products.service.js";
 import { renderProduct } from "../Product/Product.js";
-import { renderAddForm, fillAddForm } from "../Add-form/AddForm.js";
-
+import { renderAddForm } from "../Forms/Add-form/AddForm.js";
+import { renderEditForm } from "../Forms/Edit-form/EditForm.js";
 export async function renderShop() {
   addShopEventListeners();
   let shopGrid = document.querySelector(".shop__grid");
@@ -21,8 +21,7 @@ function addToCart(event) {
 
 function editProduct(event) {
   let id = event.target.id.split("-")[1];
-  renderAddForm(id);
-  fillAddForm(id);
+  renderEditForm(id);
 }
 
 function addShopEventListeners() {

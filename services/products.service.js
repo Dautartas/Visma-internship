@@ -17,15 +17,19 @@ function mapProduct(data) {
 export async function addProduct(event) {
   event.preventDefault();
   let product = mapProduct(event.target);
-  const response = await fetch(url, {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
 
-    body: JSON.stringify(product),
-  });
+      body: JSON.stringify(product),
+    });
+  } catch (err) {
+    console.log("Error while adding the product: " + err.message);
+  }
 
   // const content = await response.json();
   // console.log(content);
@@ -37,7 +41,7 @@ export async function getProducts() {
     const data = await response.json();
     return data;
   } catch (err) {
-    console.log("Error while getting products from database: " + err.message);
+    console.log("Error while getting products: " + err.message);
   }
 }
 
@@ -47,23 +51,38 @@ export async function getProduct(id) {
     const data = await response.json();
     return data;
   } catch (err) {
-    console.log("Error while getting product from database: " + err.message);
+    console.log("Error while getting product: " + err.message);
   }
 }
 
 export async function updateProduct(event, id) {
   event.preventDefault();
-  console.log(event.target);
   let product = mapProduct(event.target);
-  const response = await fetch(`${url}/${id}`, {
-    method: "PUT",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
+  try {
+    const response = await fetch(`${url}/${id}`, {
+      method: "PUT",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
 
-    body: JSON.stringify(product),
-  });
+      body: JSON.stringify(product),
+    });
+  } catch (err) {
+    console.log("Error while updating the product: " + err.message);
+  }
 }
 
-export async function deleteProduct(id) {}
+export async function deleteProduct(id) {
+  try {
+    const response = await fetch(`${url}/${id}`, {
+      method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    });
+  } catch (err) {
+    console.log("Error while deleting the product: " + err.message);
+  }
+}
