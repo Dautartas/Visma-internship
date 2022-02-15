@@ -2,11 +2,13 @@ import { getProducts } from "../../services/products.service.js";
 import { renderProduct } from "../Product/Product.js";
 import { renderAddForm } from "../Forms/Add-form/AddForm.js";
 import { renderEditForm } from "../Forms/Edit-form/EditForm.js";
+
 export async function renderShop() {
   addShopEventListeners();
   let shopGrid = document.querySelector(".shop__grid");
-  shopGrid.innerHTML = "";
+  shopGrid.classList.add("loader-large");
   let data = await getProducts();
+  shopGrid.classList.remove("loader-large");
 
   data.forEach((product) => {
     shopGrid.innerHTML += renderProduct(product);

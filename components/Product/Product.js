@@ -1,3 +1,4 @@
+import { PRODUCT_PREFIX } from "../../services/utils.js";
 /**
  *
  * @param {object} data {id,name,price, image}
@@ -15,8 +16,6 @@
  */
 
 export function renderProduct(data) {
-  const PRODUCT_PREFIX = "product";
-
   let productClass = PRODUCT_PREFIX;
   if (data.onSale === true) {
     productClass += " sale";

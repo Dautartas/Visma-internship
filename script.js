@@ -1,8 +1,7 @@
 import { renderShop } from "/components/Shop/Shop.js";
 import { filter } from "/components/Filter/Filter.js";
 import { renderCart } from "/components/Cart/Cart.js";
-const INDEX_PAGE = "index";
-const CART_PAGE = "cart";
+import { INDEX_PAGE, CART_PAGE } from "./services/utils.js";
 
 let productsLength;
 await loadPage();

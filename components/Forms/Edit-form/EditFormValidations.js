@@ -1,6 +1,8 @@
-const EDIT_SUBMIT_ID = "formEditSubmit";
-const ERROR_COLOR = "pink";
-const CORRECT_COLOR = "white";
+import {
+  EDIT_SUBMIT_ID,
+  ERROR_COLOR,
+  CORRECT_COLOR,
+} from "../../../services/utils.js";
 
 let isNameValid = true;
 let isPriceValid = true;
@@ -32,6 +34,12 @@ export function colorPrice(event) {
   submitButtonHandler();
 }
 
+function loader(submit) {
+  submit.disabled = true; // preventing multiple submits
+  submit.innerHTML = "";
+  submit.classList.add("loader-small");
+}
+
 export function validateForm(target) {
   let submit = target.formEditSubmit;
   let name = target.name;
@@ -45,7 +53,6 @@ export function validateForm(target) {
     alert("Product price cannot be empty, equal or lower than zero.");
     return false;
   }
-  submit.disabled = true;
-  submit.innerHTML = "Updating..."; // preventing multiple submits
+  loader(submit);
   return true;
 }

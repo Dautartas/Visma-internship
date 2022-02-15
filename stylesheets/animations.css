@@ -38,3 +38,35 @@
 #newItemButton:hover {
   background-size: cover;
 }
+
+.loader-large {
+  margin: auto;
+
+  border-radius: 50%;
+  border-top: 1rem solid #3498db;
+  border-bottom: 1rem solid #3498db;
+
+  width: 4rem;
+  height: 4rem;
+  animation: spin 0.5s linear infinite;
+}
+
+.loader-small {
+  margin: auto;
+  border-radius: 50%;
+  border-top: 0.25rem solid #3498db;
+  border-bottom: 0.25rem solid #3498db;
+
+  width: 1rem;
+  height: 1rem;
+  animation: spin 0.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

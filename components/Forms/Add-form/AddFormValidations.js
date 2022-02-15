@@ -1,6 +1,8 @@
-const ADD_SUBMIT_ID = "formAddSubmit";
-const ERROR_COLOR = "pink";
-const CORRECT_COLOR = "white";
+import {
+  ADD_SUBMIT_ID,
+  ERROR_COLOR,
+  CORRECT_COLOR,
+} from "../../../services/utils.js";
 
 let isNameValid = true;
 let isPriceValid = true;
@@ -31,6 +33,12 @@ export function colorPrice(event) {
   submitButtonHandler();
 }
 
+function loader(submit) {
+  submit.disabled = true; // preventing multiple submits
+  submit.innerHTML = "";
+  submit.classList.add("loader-small");
+}
+
 export function validateForm(target) {
   let submit = target.formAddSubmit;
   let name = target.name;
@@ -45,7 +53,7 @@ export function validateForm(target) {
     return false;
   }
 
-  submit.disabled = true;
-  submit.innerHTML = "Adding..."; // preventing multiple submits
+  loader(submit);
+
   return true;
 }
