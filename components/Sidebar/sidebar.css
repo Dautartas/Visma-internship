@@ -30,3 +30,7 @@
   padding: 0;
   margin: 0;
 }
+
+.sidebar__section > ul > li:hover {
+  color: navy;
+}

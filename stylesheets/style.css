@@ -1,4 +1,2 @@
-@import "default.css";
 @import "../components/styles.css";
-@import "animations.css";
-@import "responsiveness.css";
+@import "default.css";

@@ -28,11 +28,8 @@ export async function addProduct(event) {
       body: JSON.stringify(product),
     });
   } catch (err) {
-    console.log("Error while adding the product: " + err.message);
+    console.error("Error while adding the product: " + err.message);
   }
-
-  // const content = await response.json();
-  // console.log(content);
 }
 
 export async function getProducts() {
@@ -41,7 +38,7 @@ export async function getProducts() {
     const data = await response.json();
     return data;
   } catch (err) {
-    console.log("Error while getting products: " + err.message);
+    console.error("Error while getting products: " + err.message);
   }
 }
 
@@ -51,7 +48,7 @@ export async function getProduct(id) {
     const data = await response.json();
     return data;
   } catch (err) {
-    console.log("Error while getting product: " + err.message);
+    console.error("Error while getting product: " + err.message);
   }
 }
 
@@ -69,7 +66,7 @@ export async function updateProduct(event, id) {
       body: JSON.stringify(product),
     });
   } catch (err) {
-    console.log("Error while updating the product: " + err.message);
+    console.error("Error while updating the product: " + err.message);
   }
 }
 
@@ -83,6 +80,6 @@ export async function deleteProduct(id) {
       },
     });
   } catch (err) {
-    console.log("Error while deleting the product: " + err.message);
+    console.error("Error while deleting the product: " + err.message);
   }
 }
