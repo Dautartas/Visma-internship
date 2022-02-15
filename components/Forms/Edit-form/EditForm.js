@@ -98,7 +98,6 @@ function submitEditedForm(event) {
 }
 
 function removeProduct(event) {
-  console.log(event.target);
   if (confirm("Delete the product?") == true) {
     event.target.disabled = true;
     event.target.innerHTML = "Deleting...";

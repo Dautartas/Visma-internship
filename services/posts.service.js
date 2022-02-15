@@ -9,7 +9,7 @@ export async function getPosts() {
     const data = await response.json();
     return data;
   } catch (err) {
-    console.log("Error while getting products from database: " + err.message);
+    console.error("Error while getting products from database: " + err.message);
   }
 }
 
