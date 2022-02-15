@@ -1,5 +1,5 @@
 import { addProduct } from "../../../../services/products.service.js";
-import { colorName, colorPrice, validateForm } from "../validations.js";
+import { colorName, colorPrice, validateForm } from "./AddFormValidations.js";
 
 const FORM_ID_PREFIX = "formAdd";
 
@@ -66,6 +66,7 @@ export function renderAddForm() {
         class="form__input form__input--submit"
         id="${FORM_ID_PREFIX}Submit"
         type="submit"
+        disabled
       >Add</button>
     </form>`;
 

@@ -3,7 +3,7 @@ import {
   updateProduct,
   deleteProduct,
 } from "../../../../services/products.service.js";
-import { colorName, colorPrice, validateForm } from "../validations.js";
+import { colorName, colorPrice, validateForm } from "./EditFormValidations.js";
 
 const FORM_ID_PREFIX = "formEdit";
 let currentProductId = null; // for editing product
@@ -80,7 +80,7 @@ export function renderEditForm(id) {
           class="form__input form__input--submit"
           id="${FORM_ID_PREFIX}Submit"
           type="submit"
-        >Edit</button>
+        >Update</button>
         <button
           class="form__input form__input--submit"
           id="${FORM_ID_PREFIX}Delete"
