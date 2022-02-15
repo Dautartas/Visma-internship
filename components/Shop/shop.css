@@ -60,3 +60,7 @@
   border: none;
   box-shadow: 0px 0px 5px 5px rgb(241, 237, 237);
 }
+
+#newItemButton:hover {
+  background-size: cover;
+}
