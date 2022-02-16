@@ -12,6 +12,7 @@
 .sidebar__search {
   padding: 5%;
   display: flex;
+  border-radius: 1.5rem;
 }
 
 .sidebar__search-input {
@@ -20,6 +21,7 @@
 
 .sidebar__section {
   padding: 1.5rem;
+  border-radius: 1.5rem;
 }
 
 .sidebar__section-title {

@@ -1,15 +1,27 @@
 .filter {
   display: flex;
+  flex-direction: column;
   margin: 2rem;
   justify-content: space-between;
   align-items: center;
   background-color: rgb(223, 215, 215);
   height: 3rem;
   padding: 1.5rem;
+  border: solid 0.5rem navy;
+  border-radius: 1.5rem;
+}
+
+.filter__wrapper--sort {
 }
 
 .filter__text {
 }
 
 .filter__sort {
+}
+
+.filter__wrapper--pagination {
+}
+
+.filter__pagination {
 }

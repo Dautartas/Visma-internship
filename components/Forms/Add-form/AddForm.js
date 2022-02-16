@@ -21,7 +21,7 @@ function submitForm(event) {
  * </form>
  */
 export function renderAddForm() {
-  document.querySelector(".shop__filter").remove();
+  document.querySelector(".filter").remove();
   document.querySelector(".shop__grid").innerHTML = `
     <form class=form id ="${FORM_ADD_ID_PREFIX}">
       <label for="${FORM_ADD_ID_PREFIX}Name" class="form__label">
@@ -62,7 +62,7 @@ export function renderAddForm() {
         type="checkbox"
       />
       <button
-        class="form__input form__input--submit"
+        class="form__input--submit submit-green"
         id="${FORM_ADD_ID_PREFIX}Submit"
         type="submit"
         disabled

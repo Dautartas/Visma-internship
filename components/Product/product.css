@@ -8,11 +8,12 @@
   justify-content: center;
   align-content: center;
   align-items: center;
-  box-shadow: 5px 5px 5px grey;
+  box-shadow: 0px 0px 5px 5px grey;
   position: relative;
   transition: box-shadow 0.3s;
   transition-timing-function: ease;
   padding: 0.5rem;
+  border-radius: 1.5rem;
 }
 
 .product:hover {
@@ -21,11 +22,11 @@
 
 .product__edit {
   visibility: hidden;
+  position: absolute;
 }
 
 .product:hover .product__edit {
   visibility: visible;
-  position: absolute;
   left: 5%;
   top: 5%;
   box-shadow: 0px 0px 10px 5px navy;
@@ -56,6 +57,8 @@
 }
 
 .product__info-name {
+  display: flex;
+  /* justify-content: center; */
   width: 80%;
   white-space: nowrap;
   overflow: hidden;

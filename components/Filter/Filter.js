@@ -2,6 +2,7 @@ import { FILTER_PREFIX } from "../../services/utils.js";
 
 export function renderFilter() {
   document.getElementsByClassName(FILTER_PREFIX)[0].innerHTML = `
+  <div class="${FILTER_PREFIX}__wrapper--sort">
   <span class="${FILTER_PREFIX}__text">
     Showing 
     <span id="filter__range"></span> 
@@ -15,7 +16,9 @@ export function renderFilter() {
     Default sorting
   </option>
   <option value="other">Other sorting</option>
-</select>`;
+</select>
+</div>
+<div class="${FILTER_PREFIX}__pagination">PAGINATION</div>`;
 }
 
 /**

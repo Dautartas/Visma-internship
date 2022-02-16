@@ -26,7 +26,8 @@ let currentProductId = null; // for editing product
  * </form>
  */
 export function renderEditForm(id) {
-  document.querySelector(".shop__filter").remove();
+  document.getElementById("newItemButton").remove();
+  document.querySelector(".filter").remove();
   document.querySelector(".shop__grid").innerHTML = `
       <form class=form id ="${FORM_EDIT_ID_PREFIX}">
         <label for="${FORM_EDIT_ID_PREFIX}Name" class="form__label">
@@ -51,7 +52,7 @@ export function renderEditForm(id) {
         <label for="${FORM_EDIT_ID_PREFIX}Image" class="form__label">
           Select image
         </label>
-        <select id="${FORM_EDIT_ID_PREFIX}Image" name="image">
+        <select id="${FORM_EDIT_ID_PREFIX}Image" name="image" class="form__input">
           <option class="form__option">${IMAGE_CHOICES[0]}</option>
           <option class="form__option">${IMAGE_CHOICES[1]}</option>
           <option class="form__option">${IMAGE_CHOICES[2]}</option>
@@ -67,12 +68,12 @@ export function renderEditForm(id) {
           type="checkbox"
         />
         <button
-          class="form__input form__input--submit"
+          class="form__input--submit submit-green"
           id="${FORM_EDIT_ID_PREFIX}Submit"
           type="submit"
         >Update</button>
         <button
-          class="form__input form__input--submit"
+          class="form__input--submit submit-red"
           id="${FORM_EDIT_ID_PREFIX}Delete"
           type="button"
         >Delete Product</button>
