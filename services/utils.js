@@ -11,6 +11,7 @@ export const IMAGE_CHOICES = ["hat", "tshirt", "pants", "shoes"];
 
 export const FORM_ADD_ID_PREFIX = "formAdd";
 export const FORM_EDIT_ID_PREFIX = "formEdit";
+export const FILTER_PREFIX = "filter";
 
 export function addClass(elements, className) {
   elements.forEach((element) => {

@@ -2,19 +2,19 @@ import { getProducts } from "../../services/products.service.js";
 import { renderProduct } from "../Product/Product.js";
 import { renderAddForm } from "../Forms/Add-form/AddForm.js";
 import { renderEditForm } from "../Forms/Edit-form/EditForm.js";
-
+import { renderFilter, filter } from "../Filter/Filter.js";
 export async function renderShop() {
   addShopEventListeners();
   let shopGrid = document.querySelector(".shop__grid");
   shopGrid.classList.add("loader-large");
   let data = await getProducts();
   shopGrid.classList.remove("loader-large");
-
+  renderFilter();
+  filter(data.length);
   data.forEach((product) => {
     shopGrid.innerHTML += renderProduct(product);
   });
   addProductEventListeners();
-  return data.length;
 }
 
 function addToCart(event) {

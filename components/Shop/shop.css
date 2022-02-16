@@ -18,22 +18,6 @@
 .shop__heading-breadcrumbs {
 }
 
-.shop__filter {
-  display: flex;
-  margin: 2rem;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgb(223, 215, 215);
-  height: 3rem;
-  padding: 1.5rem;
-}
-
-.shop__filter-text {
-}
-
-.shop__filter-sort {
-}
-
 .shop__grid {
   display: flex;
   justify-content: space-evenly;

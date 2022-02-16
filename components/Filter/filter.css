@@ -1,0 +1,15 @@
+.filter {
+  display: flex;
+  margin: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(223, 215, 215);
+  height: 3rem;
+  padding: 1.5rem;
+}
+
+.filter__text {
+}
+
+.filter__sort {
+}
