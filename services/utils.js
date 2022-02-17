@@ -11,9 +11,10 @@ export const IMAGE_CHOICES = ["hat", "tshirt", "pants", "shoes"];
 
 export const FORM_ADD_ID_PREFIX = "formAdd";
 export const FORM_EDIT_ID_PREFIX = "formEdit";
-export const FILTER_PREFIX = "filter";
+export const FILTER_PREFIX = "filter"; // constants.js share arba core folderis
 
 export function addClass(elements, className) {
+  //domAddClass
   elements.forEach((element) => {
     element.classList.add(className);
   });

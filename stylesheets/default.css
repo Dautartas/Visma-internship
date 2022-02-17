@@ -79,9 +79,8 @@ body {
   margin: auto;
 
   border-radius: 50%;
-  border-top: 1rem solid #3498db;
-  border-bottom: 1rem solid #3498db;
-
+  border-top: 1rem solid lightblue;
+  border-bottom: 1rem solid lightblue;
   width: 4rem;
   height: 4rem;
   animation: spin 0.5s linear infinite;
@@ -90,8 +89,8 @@ body {
 .loader-small {
   margin: auto;
   border-radius: 50%;
-  border-top: 0.25rem solid #3498db;
-  border-bottom: 0.25rem solid #3498db;
+  border-top: 0.25rem solid lightblue;
+  border-bottom: 0.25rem solid lightblue;
 
   width: 1rem;
   height: 1rem;

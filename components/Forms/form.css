@@ -42,6 +42,10 @@
   opacity: 0.9;
 }
 
+.form__input--submit:disabled {
+  opacity: 0.5;
+}
+
 .submit-green {
   background-color: green;
 }
