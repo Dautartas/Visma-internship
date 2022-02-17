@@ -7,8 +7,9 @@
   background-color: rgb(223, 215, 215);
   height: 3rem;
   padding: 1.5rem;
-  border: solid 0.5rem navy;
+  border: solid 0.5rem white;
   border-radius: 1.5rem;
+  background-color: lightblue;
 }
 
 .filter__wrapper--sort {

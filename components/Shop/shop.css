@@ -4,6 +4,8 @@
   flex-direction: column;
   box-shadow: 0px 0px 10px 5px black;
   border-radius: 1.5rem;
+  /* background-image: url("/assets/background.jfif"); */
+  background-color: white;
 }
 
 .shop__heading {
@@ -40,10 +42,10 @@
   background-image: url("../../../assets/Add/48_Add.svg");
   background-repeat: no-repeat;
   background-position: center;
-  background-color: rgb(241, 237, 237);
+  background-color: white;
   border-radius: 40%;
   border: none;
-  box-shadow: 0px 0px 5px 5px rgb(241, 237, 237);
+  box-shadow: 0px 0px 5px 5px white;
 }
 
 #newItemButton:hover {
