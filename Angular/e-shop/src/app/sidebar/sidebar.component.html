@@ -1,1 +1,13 @@
-<p>sidebar works!</p>
+<div class="container">
+  <div class="col-md-12" *ngFor="let section of sidebarSections">
+    <h4>{{ section.title }}</h4>
+    <hr />
+    <div class="col-md-12">
+      <ul class="list-group" *ngFor="let article of section.articles">
+        <li>
+          <a href="#" class="list-group-item">{{ article }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

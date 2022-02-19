@@ -13,9 +13,20 @@ import { CartComponent } from './cart/cart.component';
 import { FilterComponent } from './shop/filter/filter.component';
 import { ProductListComponent } from './shop/product-list/product-list.component';
 import { ProductComponent } from './shop/product-list/product/product.component';
-import { SectionComponent } from './sidebar/section/section.component';
+import { SidebarSectionComponent } from './sidebar/sidebar-section/sidebar-section.component';
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, SidebarComponent, FooterComponent, ShopComponent, CartComponent, FilterComponent, ProductListComponent, ProductComponent, SectionComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    SidebarComponent,
+    FooterComponent,
+    ShopComponent,
+    CartComponent,
+    FilterComponent,
+    ProductListComponent,
+    ProductComponent,
+    SidebarSectionComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
