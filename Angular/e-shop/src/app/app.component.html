@@ -1,12 +1,12 @@
 <app-header (pageSelected)="renderPage($event)"></app-header>
 <div class="container">
   <div class="row">
-    <div class="col-md-11">
+    <div class="col-lg-10">
       <h1>e-shop</h1>
       <app-shop *ngIf="currentPage === 'shop'"> </app-shop>
       <app-cart *ngIf="currentPage === 'cart'"></app-cart>
     </div>
-    <div class="col-md-1">
+    <div class="col-lg-2">
       <app-sidebar></app-sidebar>
     </div>
   </div>
