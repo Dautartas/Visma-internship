@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'E-shop';
+  currentPage = 'shop';
+
+  renderPage(page: string) {
+    this.currentPage = page;
+  }
 }
