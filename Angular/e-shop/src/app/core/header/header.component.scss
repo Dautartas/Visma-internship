@@ -1,0 +1,33 @@
+.header {
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+  .navigation {
+    display: flex;
+    width: 100%;
+    background-color: black;
+    color: white;
+    height: 10vh;
+    font-size: 200%;
+    &__items {
+      display: flex;
+      width: 100%;
+      justify-content: space-around;
+      align-items: center;
+      font-weight: bold;
+    }
+    &__item {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    &__link {
+      text-decoration: none;
+      color: white;
+      &:hover {
+        color: rgb(127, 127, 161);
+        cursor: pointer;
+      }
+    }
+  }
+}

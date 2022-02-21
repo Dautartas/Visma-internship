@@ -1,11 +1,7 @@
-<div *ngFor="let section of sidebarSections">
-  <h4>{{ section.title }}</h4>
-  <hr />
-  <div>
-    <ul class="list-group" *ngFor="let article of section.articles">
-      <li>
-        <a href="#" class="list-group-item">{{ article }}</a>
-      </li>
-    </ul>
-  </div>
+<div class="sidebar">
+  <app-sidebar-section
+    *ngFor="let section of sidebarSections"
+    class="sidebar__section"
+    [title]="section.title"
+  ></app-sidebar-section>
 </div>

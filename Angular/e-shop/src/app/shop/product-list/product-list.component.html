@@ -1,6 +1,5 @@
-<div class="row">
-  <div class="col-xs-12">
-    <form>
+<div>
+  <!-- <form>
       <div class="form-group col-lg-4">
         <label for="">Name</label>
         <input
@@ -38,16 +37,14 @@
         <label><input type="checkbox" /> On sale?</label>
       </div>
       <button type="submit" class="btn btn-success">Add product</button>
-    </form>
-  </div>
+    </form> -->
 </div>
 <hr />
-<div class="row">
-  <div class="col-xs-12">
-    <app-product
-      *ngFor="let productItem of products"
-      [product]="productItem"
-      (productClicked)="clicked($event)"
-    ></app-product>
-  </div>
+<div class="shop__grid">
+  <app-product
+    class="product-wrapper"
+    *ngFor="let productItem of products"
+    [product]="productItem"
+    (productClicked)="clicked($event)"
+  ></app-product>
 </div>

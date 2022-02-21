@@ -8,16 +8,16 @@ import { Product } from './product.model';
 })
 export class ProductListComponent implements OnInit {
   products: Product[] = [
+    new Product('Product', 3, '../../../assets/hat.png', true),
+    new Product('Product', 3, '../../../assets/pants.png', true),
     new Product('Product', 3, '../../../assets/shoes.png', true),
+    new Product('Product', 3, '../../../assets/hat.png', true),
     new Product('Product', 3, '../../../assets/shoes.png', true),
+    new Product('Product', 3, '../../../assets/pants.png', true),
+    new Product('Product', 3, '../../../assets/tshirt.png', true),
+    new Product('Product', 3, '../../../assets/hat.png', true),
     new Product('Product', 3, '../../../assets/shoes.png', true),
-    new Product('Product', 3, '../../../assets/shoes.png', true),
-    new Product('Product', 3, '../../../assets/shoes.png', true),
-    new Product('Product', 3, '../../../assets/shoes.png', true),
-    new Product('Product', 3, '../../../assets/shoes.png', true),
-    new Product('Product', 3, '../../../assets/shoes.png', true),
-    new Product('Product', 3, '../../../assets/shoes.png', true),
-    new Product('Product', 3, '../../../assets/shoes.png', true),
+    new Product('Product', 3, '../../../assets/pants.png', true),
   ];
 
   constructor() {}

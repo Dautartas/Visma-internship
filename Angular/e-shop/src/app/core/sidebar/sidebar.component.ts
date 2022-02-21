@@ -8,8 +8,8 @@ import { SidebarSection } from './sidebar-section.model';
 })
 export class SidebarComponent implements OnInit {
   sidebarSections: SidebarSection[] = [
-    new SidebarSection('Posts', ['article1', 'article2']),
-    new SidebarSection('Comments', ['article1', 'article2']),
+    new SidebarSection('Posts'),
+    new SidebarSection('Comments'),
   ];
   constructor() {}
 

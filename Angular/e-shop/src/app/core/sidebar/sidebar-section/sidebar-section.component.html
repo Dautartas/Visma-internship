@@ -1,1 +1,9 @@
-<p>section works!</p>
+<section>
+  <h4 class="section-title">{{ title }}</h4>
+  <hr />
+  <ul class="articles" *ngFor="let article of articles">
+    <li class="articles__item">
+      <a href="#" class="articles__link">{{ article.title }}</a>
+    </li>
+  </ul>
+</section>

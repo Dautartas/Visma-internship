@@ -1,0 +1,108 @@
+.product {
+  border: solid white 5px;
+  margin: 0.5rem;
+  height: 30rem;
+  //
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 5px 5px grey;
+  position: relative;
+  transition: box-shadow 0.3s;
+  transition-timing-function: ease;
+  padding: 0.5rem;
+  border-radius: 1.5rem;
+  background-color: lightblue;
+  &:hover {
+    box-shadow: 0px 0px 5px 10px lightblue;
+  }
+  &__edit {
+    visibility: hidden;
+    position: absolute;
+  }
+  &:hover .product__edit {
+    visibility: visible;
+    left: 5%;
+    top: 5%;
+    box-shadow: 0px 0px 10px 5px white;
+    background-color: white;
+    color: black;
+    font-size: large;
+    font-weight: bold;
+    border: none;
+    padding: 0.25rem 1rem 0.25rem 1rem;
+    width: 25%;
+    transition: width 0.5s;
+    transition-timing-function: ease;
+    &:hover {
+      width: 40%;
+    }
+  }
+  &__image {
+    width: 80%;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    font-weight: bold;
+    &-name {
+      margin: 1rem 0 0 0;
+      display: flex;
+      /* justify-content: center; */
+      width: 80%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    &-price {
+      margin: 0;
+
+      color: white;
+      padding: 0.5rem;
+      font-weight: bold;
+      font-size: 200%;
+    }
+  }
+  &__add {
+    padding: 1rem;
+    margin: 1rem;
+    width: 50%;
+    border: none;
+    background-color: white;
+    color: black;
+    font-size: large;
+    transition: width 0.5s;
+    transition-timing-function: ease;
+    box-shadow: 0px 0px 10px 5px white;
+    font-weight: bold;
+    &:hover {
+      width: 60%;
+    }
+  }
+  &.sale::after {
+    position: absolute;
+    top: 5%;
+    right: 3%;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    font-weight: bold;
+
+    background: lightblue;
+    color: black;
+    box-shadow: 0px 0px 10px 5px white;
+    transform: rotate(-5deg);
+    content: "SALE";
+  }
+}
+@media screen and (max-width: 500px) {
+  .product {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
