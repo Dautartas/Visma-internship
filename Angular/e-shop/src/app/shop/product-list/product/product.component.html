@@ -1,1 +1,14 @@
-<p>Thats a product</p>
+<a href="#" class="list-group-item clearfix col-xs-4" (click)="onClick()">
+  <div class="pull-left">
+    <h4 class="list-group-item-heading">{{ product.name }}</h4>
+    <p class="list-group-item-text">{{ product.price }}</p>
+  </div>
+  <span class="pull-right">
+    <img
+      src="{{ product.imagePath }}"
+      alt="{{ product.name }}"
+      class="img-responsive"
+      style="max-height: 150px"
+    />
+  </span>
+</a>

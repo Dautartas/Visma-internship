@@ -1,28 +1,53 @@
 <div class="row">
   <div class="col-xs-12">
-    <button class="btn btn-success">New Product</button>
+    <form>
+      <div class="form-group col-lg-4">
+        <label for="">Name</label>
+        <input
+          type="text"
+          name="name"
+          id=""
+          class="form-control"
+          placeholder=""
+          aria-describedby="helpId"
+        />
+        <small id="helpId" class="text-muted">Product name</small>
+      </div>
+      <div class="form-group col-lg-2">
+        <label for="">Price</label>
+        <input
+          type="number"
+          name=""
+          id=""
+          class="form-control"
+          placeholder=""
+          aria-describedby="helpId"
+        />
+        <small id="helpId" class="text-muted">Price</small>
+      </div>
+      <div class="form-group col-lg-2">
+        <label for="image">Image:</label>
+        <select class="form-control" id="image">
+          <option>Image1</option>
+          <option>Image2</option>
+          <option>Image3</option>
+          <option>Image4</option>
+        </select>
+      </div>
+      <div class="checkbox col-lg-2">
+        <label><input type="checkbox" /> On sale?</label>
+      </div>
+      <button type="submit" class="btn btn-success">Add product</button>
+    </form>
   </div>
 </div>
 <hr />
 <div class="row">
   <div class="col-xs-12">
-    <a
-      href="#"
-      class="list-group-item clearfix col-xs-4"
-      *ngFor="let product of products"
-    >
-      <div class="pull-left">
-        <h4 class="list-group-item-heading">{{ product.name }}</h4>
-        <p class="list-group-item-text">{{ product.price }}</p>
-      </div>
-      <span class="pull-right">
-        <img
-          src="{{ product.imagePath }}"
-          alt="{{ product.name }}"
-          class="img-responsive"
-          style="max-height: 150px"
-        />
-      </span>
-    </a>
+    <app-product
+      *ngFor="let productItem of products"
+      [product]="productItem"
+      (productClicked)="clicked($event)"
+    ></app-product>
   </div>
 </div>

@@ -12,7 +12,6 @@ export class ProductListComponent implements OnInit {
     new Product('Product', 3, '../../../assets/shoes.png', true),
     new Product('Product', 3, '../../../assets/shoes.png', true),
     new Product('Product', 3, '../../../assets/shoes.png', true),
-
     new Product('Product', 3, '../../../assets/shoes.png', true),
     new Product('Product', 3, '../../../assets/shoes.png', true),
     new Product('Product', 3, '../../../assets/shoes.png', true),
@@ -24,4 +23,8 @@ export class ProductListComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  clicked(data: any) {
+    console.log(typeof data);
+  }
 }
