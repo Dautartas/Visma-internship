@@ -14,6 +14,8 @@ import { FilterComponent } from './shop/filter/filter.component';
 import { ProductListComponent } from './shop/product-list/product-list.component';
 import { ProductComponent } from './shop/product-list/product/product.component';
 import { SidebarSectionComponent } from './core/sidebar/sidebar-section/sidebar-section.component';
+import { ProductFormComponent } from './shop/product-form/product-form.component';
+import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +28,8 @@ import { SidebarSectionComponent } from './core/sidebar/sidebar-section/sidebar-
     ProductListComponent,
     ProductComponent,
     SidebarSectionComponent,
+    ProductFormComponent,
+    NotFoundComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
