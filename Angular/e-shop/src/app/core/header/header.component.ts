@@ -10,8 +10,4 @@ export class HeaderComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-
-  renderPage(page: string) {
-    this.pageSelected.emit(page);
-  }
 }

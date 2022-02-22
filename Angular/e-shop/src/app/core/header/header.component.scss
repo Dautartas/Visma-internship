@@ -24,11 +24,15 @@
     }
     &__link {
       text-decoration: none;
-      color: white;
+      color: gray;
       &:hover {
-        color: rgb(127, 127, 161);
+        color: white;
+        text-shadow: 0px 0px 3px white;
         cursor: pointer;
       }
+    }
+    .active {
+      color: white;
     }
   }
 }

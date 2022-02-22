@@ -2,12 +2,19 @@
   <nav class="navigation">
     <ul class="navigation__items">
       <li class="navigation__item">
-        <a href="#" (click)="renderPage('shop')" class="navigation__link"
+        <a
+          routerLink="/"
+          class="navigation__link"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
           >Shop</a
         >
       </li>
       <li class="navigation__item">
-        <a href="#" (click)="renderPage('cart')" class="navigation__link"
+        <a
+          [routerLink]="['/cart']"
+          class="navigation__link"
+          routerLinkActive="active"
           >Cart</a
         >
       </li>
