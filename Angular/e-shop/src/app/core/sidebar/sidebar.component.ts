@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SidebarSection } from './sidebar-section.model';
+import { SidebarSection } from '../resources/models/sidebar-section.model';
 
 @Component({
   selector: 'app-sidebar',
