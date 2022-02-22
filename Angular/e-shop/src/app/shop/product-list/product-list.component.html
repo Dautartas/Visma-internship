@@ -1,51 +1,10 @@
-<div>
-  <!-- <form>
-      <div class="form-group col-lg-4">
-        <label for="">Name</label>
-        <input
-          type="text"
-          name="name"
-          id=""
-          class="form-control"
-          placeholder=""
-          aria-describedby="helpId"
-        />
-        <small id="helpId" class="text-muted">Product name</small>
-      </div>
-      <div class="form-group col-lg-2">
-        <label for="">Price</label>
-        <input
-          type="number"
-          name=""
-          id=""
-          class="form-control"
-          placeholder=""
-          aria-describedby="helpId"
-        />
-        <small id="helpId" class="text-muted">Price</small>
-      </div>
-      <div class="form-group col-lg-2">
-        <label for="image">Image:</label>
-        <select class="form-control" id="image">
-          <option>Image1</option>
-          <option>Image2</option>
-          <option>Image3</option>
-          <option>Image4</option>
-        </select>
-      </div>
-      <div class="checkbox col-lg-2">
-        <label><input type="checkbox" /> On sale?</label>
-      </div>
-      <button type="submit" class="btn btn-success">Add product</button>
-    </form> -->
-</div>
 <hr />
-<div class="shop__filter">FILTER</div>
-
+<app-filter></app-filter>
 <div class="shop__grid">
   <app-product
     class="product-wrapper"
     *ngFor="let productItem of products"
     [product]="productItem"
   ></app-product>
+  <button type="button" class="shop__add"></button>
 </div>

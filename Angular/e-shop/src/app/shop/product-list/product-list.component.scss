@@ -4,8 +4,27 @@
   flex-wrap: wrap;
   margin: 1.5rem;
 }
-.product-wrapper {
+
+.shop__add {
+  height: 60px;
+  width: 60px;
+  position: fixed;
+  right: 5%;
+  bottom: 3%;
+  color: navy;
+  background-color: transparent;
+  background-image: url("../../../assets/Add/48_Add.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: white;
+  border-radius: 40%;
+  border: none;
+  box-shadow: 0px 0px 5px 5px white;
+  &:hover {
+    background-size: cover;
+  }
 }
+
 @media screen and (max-width: 600px) {
   .shop__filter {
     flex-direction: column;
