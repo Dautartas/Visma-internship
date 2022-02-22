@@ -1,11 +1,12 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Product } from 'src/app/core/resources/models/product.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  private productSelected = new EventEmitter<Product>();
+  private productSelected = new Subject<Product>();
   private products: Product[] = [
     new Product('Product', 3, '../../../assets/hat.png', true),
     new Product('Product', 3, '../../../assets/pants.png', true),
