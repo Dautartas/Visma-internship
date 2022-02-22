@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/core/resources/services/product.service';
 import { Product } from './product.model';
 
 @Component({
@@ -7,24 +8,11 @@ import { Product } from './product.model';
   styleUrls: ['./product-list.component.scss'],
 })
 export class ProductListComponent implements OnInit {
-  products: Product[] = [
-    new Product('Product', 3, '../../../assets/hat.png', true),
-    new Product('Product', 3, '../../../assets/pants.png', true),
-    new Product('Product', 3, '../../../assets/shoes.png', true),
-    new Product('Product', 3, '../../../assets/hat.png', true),
-    new Product('Product', 3, '../../../assets/shoes.png', true),
-    new Product('Product', 3, '../../../assets/pants.png', true),
-    new Product('Product', 3, '../../../assets/tshirt.png', true),
-    new Product('Product', 3, '../../../assets/hat.png', true),
-    new Product('Product', 3, '../../../assets/shoes.png', true),
-    new Product('Product', 3, '../../../assets/pants.png', true),
-  ];
+  products!: Product[];
 
-  constructor() {}
+  constructor(private productService: ProductService) {}
 
-  ngOnInit(): void {}
-
-  clicked(data: any) {
-    console.log(typeof data);
+  ngOnInit(): void {
+    this.products = this.productService.getProducts();
   }
 }

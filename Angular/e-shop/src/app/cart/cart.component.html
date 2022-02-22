@@ -1,1 +1,7 @@
-<p>cart works!</p>
+<div class="cart">
+  <app-product
+    class="product-wrapper"
+    *ngFor="let productItem of products"
+    [product]="productItem"
+  ></app-product>
+</div>

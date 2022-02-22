@@ -1,9 +1,11 @@
-<div (click)="onClick()" class="product">
+<div (click)="onProductClick()" class="product">
   <button type="button" class="product__edit">EDIT</button>
   <img src="{{ product.imagePath }}" alt="product" class="product__image" />
   <div class="product__info">
     <h4 class="product__info-name">{{ product.name }}</h4>
     <p class="product__info-price">{{ product.price }} €</p>
   </div>
-  <button type="button" class="product__add">Add to cart</button>
+  <button type="button" class="product__add" (click)="onAddToCart()">
+    Add to cart
+  </button>
 </div>
