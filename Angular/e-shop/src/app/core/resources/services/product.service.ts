@@ -8,29 +8,28 @@ import { Product } from 'src/app/core/resources/models/product.model';
 export class ProductService {
   private productSelected = new Subject<Product>();
   private products: Product[] = [
-    new Product('Product', 3, '../../../assets/hat.png', true),
-    new Product('Product', 3, '../../../assets/pants.png', true),
-    new Product('Product', 3, '../../../assets/shoes.png', true),
-    new Product('Product', 3, '../../../assets/hat.png', true),
-    new Product('Product', 3, '../../../assets/shoes.png', true),
-    new Product('Product', 3, '../../../assets/pants.png', true),
-    new Product('Product', 3, '../../../assets/tshirt.png', true),
-    new Product('Product', 3, '../../../assets/hat.png', true),
-    new Product('Product', 3, '../../../assets/shoes.png', true),
-    new Product('Product', 3, '../../../assets/pants.png', true),
+    new Product(1, 'Product', 3, '../../../assets/hat.png', true),
+    new Product(2, 'Product', 3, '../../../assets/pants.png', true),
+    new Product(3, 'Product', 3, '../../../assets/shoes.png', true),
+    new Product(4, 'Product', 3, '../../../assets/hat.png', true),
+    new Product(5, 'Product', 3, '../../../assets/shoes.png', true),
+    new Product(6, 'Product', 3, '../../../assets/pants.png', true),
+    new Product(7, 'Product', 3, '../../../assets/tshirt.png', true),
+    new Product(8, 'Product', 3, '../../../assets/hat.png', true),
+    new Product(9, 'Product', 3, '../../../assets/shoes.png', true),
+    new Product(10, 'Product', 3, '../../../assets/pants.png', true),
   ];
 
   private cart: Product[] = [
-    new Product('Product', 3, '../../../assets/hat.png', true),
+    new Product(11, 'Product', 3, '../../../assets/hat.png', true),
   ];
   constructor() {}
 
   getProducts() {
     return this.products.slice();
   }
-  getProduct(id: number) {
-    return this.products[0]; //FIXME:
-    //return this.products.find(p=>p.id == id)
+  getProduct(id: number): Product {
+    return this.products.find((p) => p.id == id)!;
   }
 
   getCart() {
@@ -42,6 +41,7 @@ export class ProductService {
   }
 
   addProduct(product: Product) {
+    console.log(product);
     this.products.push(product);
   }
 
@@ -55,5 +55,6 @@ export class ProductService {
 
   updateProduct(product: Product) {
     console.log('Product was updated.');
+    console.log(product);
   }
 }

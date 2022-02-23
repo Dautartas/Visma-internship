@@ -6,5 +6,5 @@
     *ngFor="let productItem of products"
     [product]="productItem"
   ></app-product>
-  <button type="button" class="shop__add"></button>
+  <button type="button" class="shop__add" [routerLink]="['./add']"></button>
 </div>

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { ProductService } from 'src/app/core/resources/services/product.service';
 import { Product } from '../../../core/resources/models/product.model';
 
@@ -11,14 +12,19 @@ export class ProductComponent implements OnInit {
   @Input() product!: Product;
   @Output() productClicked = new EventEmitter<void>();
 
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {}
 
-  onProductClick() {
-    this.productService.getProductSelected().next(this.product);
-  }
   onAddToCart() {
     this.productService.addProductToCart(this.product);
+  }
+
+  onEditClick() {
+    this.router.navigate(['edit', this.product.id], { relativeTo: this.route });
   }
 }

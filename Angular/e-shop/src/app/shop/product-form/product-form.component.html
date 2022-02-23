@@ -1,1 +1,97 @@
-<p>product-form works!</p>
+<form [formGroup]="productForm" class="form" (ngSubmit)="onSubmit()">
+  <div class="form__wrapper">
+    <div class="form__field">
+      <label for="formName" class="form__label">Name of the product</label>
+      <input
+        type="text"
+        formControlName="name"
+        class="form__input"
+        id="formName"
+      />
+      <span
+        *ngIf="
+          !productForm.get('name')!.valid && productForm.get('name')!.touched
+        "
+        class="form__helper"
+        >Please enter valid price of the product</span
+      >
+    </div>
+
+    <div class="form__field">
+      <label for="formPrice" class="form__label">Price of the product</label>
+      <input
+        type="number"
+        formControlName="price"
+        class="form__input"
+        id="formPrice"
+      />
+      <span
+        *ngIf="
+          !productForm.get('price')!.valid && productForm.get('price')!.touched
+        "
+        class="form__helper"
+        >Please enter valid price of the product</span
+      >
+    </div>
+  </div>
+  <div class="form__wrapper">
+    <div class="form__field">
+      <label for="formImage" class="form__label"
+        >Select image for the product</label
+      >
+      <select
+        id="formImage"
+        formControlName="image"
+        class="form__input"
+        (change)="onImageChange($event.target)"
+      >
+        <option *ngFor="let image of images; let i = index" [ngValue]="image">
+          {{ imageNames[i] }}
+        </option>
+      </select>
+      <img
+        src="{{ productImagePath }}"
+        alt="Product image"
+        class="form__image"
+      />
+    </div>
+  </div>
+  <div class="form__wrapper">
+    <div class="form__field">
+      <label for="formSale" class="form__label">Is item for sale?</label>
+      <input
+        type="checkbox"
+        formControlName="onSale"
+        id="formSale"
+        class="form__input--sale"
+      />
+    </div>
+  </div>
+  <div class="form__wrapper">
+    <span *ngIf="!productForm.valid && productForm.touched" class="form__helper"
+      >Please enter valid data</span
+    >
+
+    <div class="form__field" *ngIf="currentForm === editForm">
+      <button type="submit" class="form__input--submit" (click)="onUpdate()">
+        UPDATE
+      </button>
+    </div>
+
+    <div class="form__field" *ngIf="currentForm === editForm">
+      <button
+        type="button"
+        class="form__input--submit red-background"
+        (click)="onDeleteClick()"
+      >
+        DELETE
+      </button>
+    </div>
+
+    <div class="form__field" *ngIf="currentForm === addForm">
+      <button type="submit" class="form__input--submit" (click)="onAdd()">
+        ADD
+      </button>
+    </div>
+  </div>
+</form>

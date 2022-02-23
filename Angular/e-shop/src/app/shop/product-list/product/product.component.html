@@ -1,6 +1,8 @@
-<div (click)="onProductClick()" class="product">
-  <button type="button" class="product__edit">EDIT</button>
-  <img src="{{ product.imagePath }}" alt="product" class="product__image" />
+<div class="product">
+  <button type="button" class="product__edit" (click)="onEditClick()">
+    EDIT
+  </button>
+  <img src="{{ product.image }}" alt="product" class="product__image" />
   <div class="product__info">
     <h4 class="product__info-name">{{ product.name }}</h4>
     <p class="product__info-price">{{ product.price }} €</p>
