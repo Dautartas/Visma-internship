@@ -12,7 +12,7 @@ import { EDIT_FORM, ADD_FORM } from 'src/app/shared/components/constants';
   styleUrls: ['./product-form.component.scss'],
 })
 export class ProductFormComponent implements OnInit, OnDestroy {
-  currentForm!: string;
+  currentForm!: string; //  remove
   editForm: string = EDIT_FORM;
   addForm: string = ADD_FORM;
   addClicked = false;
@@ -23,7 +23,7 @@ export class ProductFormComponent implements OnInit, OnDestroy {
   productImagePath: string = this.defaultImage;
   private routeSub!: Subscription;
   private productId!: number;
-
+  //product
   constructor(
     private productService: ProductService,
     private router: Router,
@@ -34,7 +34,7 @@ export class ProductFormComponent implements OnInit, OnDestroy {
     this.routeSub = this.route.params.subscribe((params: Params) => {
       if (params['id']) {
         this.productId = +params['id'];
-        this.loadEditForm(+params['id']);
+        this.loadEditForm(+params['id']); //TODO: pass product so no two functions are needed
       } else {
         this.loadAddForm();
       }
@@ -47,7 +47,8 @@ export class ProductFormComponent implements OnInit, OnDestroy {
 
   loadEditForm(id: number) {
     this.currentForm = EDIT_FORM;
-    let p: Product = this.productService.getProduct(id); //TODO: error handling
+    let p: Product = this.productService.getProduct(id); //TODO: navigate to error page if not found
+
     this.productImagePath = p.image;
     this.productForm = new FormGroup({
       name: new FormControl(p.name, [
@@ -84,7 +85,7 @@ export class ProductFormComponent implements OnInit, OnDestroy {
     this.productImagePath = this.images[target.value[0]];
   }
 
-  onDeleteClick() {
+  onDelete() {
     if (confirm('Product will be deleted. Proceed?')) {
       this.productService.deleteProduct(this.productId);
       alert('Product deleted.');
@@ -96,9 +97,11 @@ export class ProductFormComponent implements OnInit, OnDestroy {
     // Useless now
     this.addClicked = false;
   }
+
   onAdd() {
     this.addClicked = true;
   }
+
   onSubmit() {
     if (this.addClicked) {
       alert('New product was added');
