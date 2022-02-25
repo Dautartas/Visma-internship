@@ -1,4 +1,4 @@
-<div class="product">
+<div class="product" [ngClass]="{ sale: product.onSale === true }">
   <button type="button" class="product__edit" (click)="onEditClick()">
     EDIT
   </button>
