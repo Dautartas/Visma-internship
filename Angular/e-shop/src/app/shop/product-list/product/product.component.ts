@@ -21,7 +21,7 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {}
 
   onAddToCart() {
-    this.productService.addProductToCart(this.product);
+    this.productService.addProductToCart(this.product.id!);
   }
 
   onEditClick() {

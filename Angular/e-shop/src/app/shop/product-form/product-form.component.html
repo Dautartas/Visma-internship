@@ -72,13 +72,11 @@
       >Please enter valid data</span
     >
 
-    <div class="form__field" *ngIf="currentForm === editForm">
-      <button type="submit" class="form__input--submit" (click)="onUpdate()">
-        UPDATE
-      </button>
+    <div class="form__field" *ngIf="product">
+      <button type="submit" class="form__input--submit">UPDATE</button>
     </div>
 
-    <div class="form__field" *ngIf="currentForm === editForm">
+    <div class="form__field" *ngIf="product">
       <button
         type="button"
         class="form__input--submit red-background"
@@ -88,10 +86,8 @@
       </button>
     </div>
 
-    <div class="form__field" *ngIf="currentForm === addForm">
-      <button type="submit" class="form__input--submit" (click)="onAdd()">
-        ADD
-      </button>
+    <div class="form__field" *ngIf="!product">
+      <button type="submit" class="form__input--submit">ADD</button>
     </div>
   </div>
 </form>

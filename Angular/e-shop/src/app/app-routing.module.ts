@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './cart/cart.component';
+import { DataResolver } from './core/resources/services/data-resolver.service';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { ProductFormComponent } from './shop/product-form/product-form.component';
 import { ProductListComponent } from './shop/product-list/product-list.component';
@@ -13,7 +14,11 @@ const routes: Routes = [
     component: ShopComponent,
     children: [
       { path: '', component: ProductListComponent },
-      { path: 'edit/:id', component: ProductFormComponent },
+      {
+        path: 'edit/:id',
+        component: ProductFormComponent,
+        resolve: { product: DataResolver },
+      },
       { path: 'add', component: ProductFormComponent },
     ],
   },
