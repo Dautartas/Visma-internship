@@ -24,6 +24,7 @@
     position: absolute;
   }
   &:hover .product__edit {
+    cursor: pointer;
     visibility: visible;
     left: 5%;
     top: 5%;
@@ -69,6 +70,7 @@
     }
   }
   &__add {
+    cursor: pointer;
     padding: 1rem;
     margin: 1rem;
     width: 50%;
