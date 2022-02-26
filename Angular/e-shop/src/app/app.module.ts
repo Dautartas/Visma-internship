@@ -17,6 +17,7 @@ import { SidebarSectionComponent } from './core/sidebar/sidebar-section/sidebar-
 import { ProductFormComponent } from './shop/product-form/product-form.component';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { AuthInterceptorService } from './core/resources/services/auth-interceptor.service';
+import { AlertComponent } from './shared/components/alert/alert.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,7 @@ import { AuthInterceptorService } from './core/resources/services/auth-intercept
     SidebarSectionComponent,
     ProductFormComponent,
     NotFoundComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,

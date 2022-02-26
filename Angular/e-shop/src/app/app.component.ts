@@ -7,10 +7,15 @@ import { ProductService } from './core/resources/services/product.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor(private productService: ProductService) {}
+  // alertMessage: string = '';
 
+  constructor(private productService: ProductService) {}
   ngOnInit(): void {
     this.productService.loadProducts();
     this.productService.loadCart();
   }
+
+  // alertClose() {
+  //   this.alertMessage = '';
+  // }
 }
