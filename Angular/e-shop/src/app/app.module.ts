@@ -12,9 +12,6 @@ import { SidebarSectionComponent } from './core/sidebar/sidebar-section/sidebar-
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { AuthInterceptorService } from './core/resources/services/auth-interceptor.service';
 import { AlertComponent } from './shared/components/alert/alert.component';
-import { ShopModule } from './shop/shop.module';
-import { CartModule } from './cart/cart.module';
-import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,8 +23,6 @@ import { CommonModule } from '@angular/common';
     AlertComponent,
   ],
   imports: [
-    CartModule,
-    ShopModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

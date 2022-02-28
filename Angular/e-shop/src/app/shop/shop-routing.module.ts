@@ -7,7 +7,7 @@ import { ShopComponent } from './shop.component';
 
 const routes: Routes = [
   {
-    path: 'shop',
+    path: '',
     component: ShopComponent,
     children: [
       { path: '', component: ProductListComponent },
