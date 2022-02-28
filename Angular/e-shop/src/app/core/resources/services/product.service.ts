@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, ReplaySubject, Subject, throwError } from 'rxjs';
+import { catchError, ReplaySubject, Subject, tap, throwError } from 'rxjs';
 import { Product } from 'src/app/core/resources/models/product.model';
 
 @Injectable({
@@ -16,7 +16,6 @@ export class ProductService {
   private CART_URL = this.url + '/cart';
 
   constructor(private http: HttpClient) {}
-
   handleError(error: HttpErrorResponse) {
     let errorMessage = 'Uknown error!';
     if (error.error instanceof ErrorEvent) {
@@ -42,16 +41,17 @@ export class ProductService {
       .pipe(catchError(this.handleError));
   }
 
-  updateProduct(product: Product) {
+  updateProduct(id: number, product: Product) {
+    console.log(product);
     return this.http
-      .put(this.PRODUCT_URL + '/', product)
+      .put(this.PRODUCT_URL + '/' + id, product)
       .pipe(catchError(this.handleError));
   }
 
   deleteProduct(id: number) {
     return this.http
       .delete(this.PRODUCT_URL + '/' + id)
-      .pipe(catchError(this.handleError));
+      .pipe(tap((r) => console.log('zzzz' + r)));
   }
 
   addProductToCart(id: number) {

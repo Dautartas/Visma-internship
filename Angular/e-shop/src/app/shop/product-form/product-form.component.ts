@@ -75,43 +75,46 @@ export class ProductFormComponent implements OnInit {
         .deleteProduct(this.product.id!)
         .pipe(untilDestroyed(this))
         .subscribe({
-          next: (response) => {
-            console.log('Successfully deleted product');
-          },
+          next: () => {},
           error: (error) => {
             console.error('Error while deleting the product.' + error);
           },
+          complete: () => {
+            this.productService.loadProducts();
+            alert('Product deleted.');
+          },
         });
-      alert('Product deleted.');
       this.router.navigate(['..']);
     }
   }
 
   onSubmit() {
     if (!this.product) {
-      alert('New product was added');
       this.productService
         .addProduct(this.productForm.value)
         .pipe(untilDestroyed(this))
         .subscribe({
-          next: (response) => {
-            console.log('successfully added product' + response);
-          },
+          next: (response) => {},
           error: (error) => {
             console.error('Error while adding the product.' + error);
           },
+          complete: () => {
+            this.productService.loadProducts();
+            alert('New product was added');
+          },
         });
     } else {
-      alert('Product was updated');
       this.productService
-        .updateProduct(this.productForm.value)
+        .updateProduct(Number(this.product.id), this.productForm.value)
         .pipe(untilDestroyed(this))
         .subscribe({
-          next: (response) => {
-            console.log(response);
-          },
+          next: (response) => {},
           error: (error) => {
             console.error('Error while updating the product data.' + error);
+          },
+          complete: () => {
+            this.productService.loadProducts();
+            alert('Product updated.');
           },
         });
     }
