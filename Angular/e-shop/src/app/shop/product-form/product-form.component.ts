@@ -38,7 +38,7 @@ export class ProductFormComponent implements OnInit {
   emptyProduct(): Product {
     return <Product>{
       name: 'Product',
-      price: 0,
+      price: 1,
       image: this.images[0],
       onSale: false,
     };
@@ -55,6 +55,7 @@ export class ProductFormComponent implements OnInit {
       price: new FormControl(p.price, [
         Validators.required,
         Validators.min(0.01),
+        Validators.max(10000),
       ]),
       image: new FormControl(p.image, [Validators.required]),
       onSale: new FormControl(p.onSale),
@@ -88,36 +89,48 @@ export class ProductFormComponent implements OnInit {
     }
   }
 
+  addProduct() {
+    this.productService
+      .addProduct(this.productForm.value)
+      .pipe(untilDestroyed(this))
+      .subscribe({
+        next: (response) => {},
+        error: (error) => {
+          console.error('Error while adding the product.' + error);
+        },
+        complete: () => {
+          this.productService.loadProducts();
+          alert('New product was added');
+        },
+      });
+  }
+
+  updateProduct() {
+    this.productService
+      .updateProduct(Number(this.product.id), this.productForm.value)
+      .pipe(untilDestroyed(this))
+      .subscribe({
+        next: (response) => {},
+        error: (error) => {
+          console.error('Error while updating the product data.' + error);
+        },
+        complete: () => {
+          this.productService.loadProducts();
+          alert('Product updated.');
+        },
+      });
+  }
+
   onSubmit() {
-    if (!this.product) {
-      this.productService
-        .addProduct(this.productForm.value)
-        .pipe(untilDestroyed(this))
-        .subscribe({
-          next: (response) => {},
-          error: (error) => {
-            console.error('Error while adding the product.' + error);
-          },
-          complete: () => {
-            this.productService.loadProducts();
-            alert('New product was added');
-          },
-        });
+    if (!this.productForm.valid) {
+      alert('Please fix invalid fields');
     } else {
-      this.productService
-        .updateProduct(Number(this.product.id), this.productForm.value)
-        .pipe(untilDestroyed(this))
-        .subscribe({
-          next: (response) => {},
-          error: (error) => {
-            console.error('Error while updating the product data.' + error);
-          },
-          complete: () => {
-            this.productService.loadProducts();
-            alert('Product updated.');
-          },
-        });
+      if (!this.product) {
+        this.addProduct();
+      } else {
+        this.updateProduct();
+      }
+      this.router.navigate(['/shop']);
     }
-    this.router.navigate(['/shop']);
   }
 }

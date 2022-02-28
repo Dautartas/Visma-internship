@@ -7,14 +7,15 @@
         formControlName="name"
         class="form__input"
         id="formName"
+        placeholder="Product name"
       />
       <span
         *ngIf="
           !productForm.get('name')!.valid && productForm.get('name')!.touched
         "
         class="form__helper"
-        >Please enter valid price of the product</span
-      >
+        >Please enter valid name
+      </span>
     </div>
 
     <div class="form__field">
@@ -24,13 +25,14 @@
         formControlName="price"
         class="form__input"
         id="formPrice"
+        placeholder="0 - 10000€"
       />
       <span
         *ngIf="
           !productForm.get('price')!.valid && productForm.get('price')!.touched
         "
         class="form__helper"
-        >Please enter valid price of the product</span
+        >Please enter valid price for the product</span
       >
     </div>
   </div>
@@ -73,7 +75,13 @@
     >
 
     <div class="form__field" *ngIf="product">
-      <button type="submit" class="form__input--submit">UPDATE</button>
+      <button
+        type="submit"
+        class="form__input--submit"
+        [disabled]="productForm.pristine"
+      >
+        UPDATE
+      </button>
     </div>
 
     <div class="form__field" *ngIf="product">
@@ -87,7 +95,13 @@
     </div>
 
     <div class="form__field" *ngIf="!product">
-      <button type="submit" class="form__input--submit">ADD</button>
+      <button
+        type="submit"
+        class="form__input--submit"
+        [disabled]="productForm.pristine"
+      >
+        ADD
+      </button>
     </div>
   </div>
 </form>
