@@ -12,6 +12,7 @@ import { SidebarSectionComponent } from './core/sidebar/sidebar-section/sidebar-
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { AuthInterceptorService } from './core/resources/services/auth-interceptor.service';
 import { AlertComponent } from './shared/components/alert/alert.component';
+import { CanDeactivateGuard } from './core/resources/services/can-deacticate-guard.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +37,7 @@ import { AlertComponent } from './shared/components/alert/alert.component';
       useClass: AuthInterceptorService,
       multi: true,
     },
+    CanDeactivateGuard,
   ],
   bootstrap: [AppComponent],
 })

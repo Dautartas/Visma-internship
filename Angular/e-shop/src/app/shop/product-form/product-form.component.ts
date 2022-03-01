@@ -5,13 +5,15 @@ import { Product } from 'src/app/core/resources/models/product.model';
 import { ProductService } from 'src/app/core/resources/services/product.service';
 import { IMAGE_NAMES } from 'src/app/shared/components/constants';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { CanComponentDeactivate } from 'src/app/core/resources/services/can-deacticate-guard.service';
+import { Observable } from 'rxjs';
 @UntilDestroy()
 @Component({
   selector: 'app-product-form',
   templateUrl: './product-form.component.html',
   styleUrls: ['./product-form.component.scss'],
 })
-export class ProductFormComponent implements OnInit {
+export class ProductFormComponent implements OnInit, CanComponentDeactivate {
   productForm!: FormGroup;
   product!: Product;
 
@@ -19,6 +21,8 @@ export class ProductFormComponent implements OnInit {
   images: string[] = this.appendImagePath(IMAGE_NAMES);
   private defaultImage: string = this.images[0];
   productImagePath: string = this.defaultImage;
+
+  private changesSaved: boolean = false;
 
   constructor(
     private productService: ProductService,
@@ -85,6 +89,7 @@ export class ProductFormComponent implements OnInit {
             alert('Product deleted.');
           },
         });
+      this.changesSaved = true;
       this.router.navigate(['..']);
     }
   }
@@ -130,7 +135,18 @@ export class ProductFormComponent implements OnInit {
       } else {
         this.updateProduct();
       }
+      this.changesSaved = true;
       this.router.navigate(['/shop']);
+    }
+  }
+
+  canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
+    if (!this.changesSaved) {
+      return confirm(
+        'You are about to leave the page with unsaved changes. Proceed?'
+      );
+    } else {
+      return true;
     }
   }
 }
