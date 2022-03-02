@@ -15,6 +15,7 @@ import { AlertComponent } from './shared/components/alert/alert.component';
 import { CanDeactivateGuard } from './core/resources/services/can-deacticate-guard.service';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './cart/store/';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { reducers } from './cart/store/';
     SidebarSectionComponent,
     NotFoundComponent,
     AlertComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,

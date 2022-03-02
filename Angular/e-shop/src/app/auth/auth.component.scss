@@ -1,0 +1,32 @@
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  height: 100%;
+  &__header {
+    color: white;
+    font-size: 3rem;
+  }
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 100%;
+  }
+  &__button {
+    cursor: pointer;
+    padding: 1rem;
+    margin: 1rem;
+    width: 25%;
+    border: 1rem solid lightblue;
+    border-radius: 1rem;
+    background-color: white;
+    color: black;
+    font-size: large;
+    &:hover {
+      font-weight: bold;
+    }
+  }
+}
