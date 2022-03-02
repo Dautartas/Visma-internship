@@ -10,8 +10,5 @@ export class AppComponent implements OnInit {
   // alertMessage: string = '';
 
   constructor(private productService: ProductService) {}
-  ngOnInit(): void {
-    this.productService.loadProducts();
-    this.productService.loadCart();
-  }
+  ngOnInit(): void {}
 }

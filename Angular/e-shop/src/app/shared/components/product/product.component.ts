@@ -11,7 +11,7 @@ import { Product } from '../../../core/resources/models/product.model';
 export class ProductComponent implements OnInit {
   @Input() product!: Product;
   @Input() isInCart: boolean = false;
-  @Output() productClicked = new EventEmitter<void>();
+  @Output() addedToCart = new EventEmitter<Product>();
   constructor(
     private productService: ProductService,
     private router: Router,
@@ -21,16 +21,17 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {}
 
   onAddToCart() {
-    this.productService.addToCart(this.product.id!).subscribe({
-      next: () => {},
-      error: (error) => {
-        alert('Error adding product to cart');
-      },
-      complete: () => {
-        this.productService.loadCart();
-        alert('Product added to cart.');
-      },
-    });
+    this.addedToCart.emit(this.product);
+    // this.productService.addToCart(this.product.id!).subscribe({
+    //   next: () => {},
+    //   error: (error) => {
+    //     alert('Error adding product to cart');
+    //   },
+    //   complete: () => {
+    //     this.productService.loadCart();
+    //     alert('Product added to cart.');
+    //   },
+    // });
   }
 
   onRemoveFromCart() {

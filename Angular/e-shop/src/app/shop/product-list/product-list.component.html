@@ -5,6 +5,7 @@
     class="product-wrapper"
     *ngFor="let productItem of products"
     [product]="productItem"
+    (addedToCart)="addToCart($event)"
   ></app-product>
   <button type="button" class="shop__add" [routerLink]="['./add']"></button>
 </div>

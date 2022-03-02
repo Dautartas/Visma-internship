@@ -85,7 +85,7 @@ export class ProductFormComponent implements OnInit, CanComponentDeactivate {
             console.error('Error while deleting the product.' + error);
           },
           complete: () => {
-            this.productService.loadProducts();
+            // this.productService.loadProducts();
             alert('Product deleted.');
           },
         });
@@ -104,7 +104,7 @@ export class ProductFormComponent implements OnInit, CanComponentDeactivate {
           console.error('Error while adding the product.' + error);
         },
         complete: () => {
-          this.productService.loadProducts();
+          // this.productService.loadProducts();
           alert('New product was added');
         },
       });
@@ -120,7 +120,7 @@ export class ProductFormComponent implements OnInit, CanComponentDeactivate {
           console.error('Error while updating the product data.' + error);
         },
         complete: () => {
-          this.productService.loadProducts();
+          // this.productService.loadProducts();
           alert('Product updated.');
         },
       });

@@ -1,7 +1,7 @@
 <div class="cart">
   <app-product
     class="product-wrapper"
-    *ngFor="let productItem of products"
+    *ngFor="let productItem of selectedProducts"
     [product]="productItem"
     [isInCart]="true"
   ></app-product>
