@@ -3,5 +3,7 @@
     class="product-wrapper"
     *ngFor="let productItem of products"
     [product]="productItem"
+    [isInCart]="true"
   ></app-product>
 </div>
+<!-- *ngFor="let productItem; products of (products | async).products "s -->

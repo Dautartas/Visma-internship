@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CanDeactivateGuard } from '../core/resources/services/can-deacticate-guard.service';
-import { DataResolver } from '../core/resources/services/data-resolver.service';
+import { ProductResolver } from '../core/resources/services/product-resolver.service';
 import { ProductFormComponent } from './product-form/product-form.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ShopComponent } from './shop.component';
@@ -15,7 +15,7 @@ const routes: Routes = [
       {
         path: 'edit/:id',
         component: ProductFormComponent,
-        resolve: { product: DataResolver },
+        resolve: { product: ProductResolver },
         canDeactivate: [CanDeactivateGuard],
       },
       {

@@ -9,7 +9,7 @@ import { Product } from '../models/product.model';
 import { ProductService } from './product.service';
 
 @Injectable({ providedIn: 'root' })
-export class DataResolver implements Resolve<Product> {
+export class ProductResolver implements Resolve<Product> {
   constructor(private productService: ProductService) {}
 
   resolve(

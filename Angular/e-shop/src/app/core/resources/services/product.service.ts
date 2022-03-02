@@ -1,7 +1,8 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, ReplaySubject, Subject, tap, throwError } from 'rxjs';
+import { catchError, ReplaySubject, Subject, throwError } from 'rxjs';
 import { Product } from 'src/app/core/resources/models/product.model';
+import { Cart } from '../models/cart.model';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,7 @@ import { Product } from 'src/app/core/resources/models/product.model';
 export class ProductService {
   error = new Subject<string>();
   private products$: ReplaySubject<Product[]> = new ReplaySubject<Product[]>();
-  private cart$: ReplaySubject<Product[]> = new ReplaySubject<Product[]>();
+  private cart$: ReplaySubject<Cart[]> = new ReplaySubject<Cart[]>();
 
   private url = 'http://localhost:3000';
   private PRODUCT_URL = this.url + '/products';
@@ -51,21 +52,22 @@ export class ProductService {
   deleteProduct(id: number) {
     return this.http
       .delete(this.PRODUCT_URL + '/' + id)
-      .pipe(tap((r) => console.log('zzzz' + r)));
+      .pipe(catchError(this.handleError));
   }
 
-  addProductToCart(id: number) {
-    // TODO:same as in product-list component? same code
-
-    // let product = this.getProduct(id);
-    // return this.http
-    //   .post(this.PRODUCT_URL, product)
-    //   .pipe(catchError(this.handleError));
-    alert('Product added to cart!');
+  mapCartItem(id: number) {
+    return <Cart>{
+      productId: id,
+      count: 1,
+      user: 'user',
+    };
   }
 
-  getProducts() {
-    return this.products$.pipe(catchError(this.handleError));
+  addToCart(id: number) {
+    let cartItem = this.mapCartItem(id);
+    return this.http
+      .post(this.CART_URL, cartItem)
+      .pipe(catchError(this.handleError));
   }
 
   loadProducts() {
@@ -74,13 +76,23 @@ export class ProductService {
     });
   }
 
+  getProducts() {
+    return this.products$.pipe(catchError(this.handleError));
+  }
+
   loadCart() {
-    this.http.get<Product[]>(this.CART_URL).subscribe((products) => {
+    this.http.get<Cart[]>(this.CART_URL).subscribe((products) => {
       this.cart$.next(products);
     });
   }
 
   getCart() {
     return this.cart$.pipe(catchError(this.handleError));
+  }
+
+  removeFromCart(id: number) {
+    return this.http
+      .delete(this.CART_URL + '/' + id)
+      .pipe(catchError(this.handleError));
   }
 }

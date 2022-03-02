@@ -14,8 +14,4 @@ export class AppComponent implements OnInit {
     this.productService.loadProducts();
     this.productService.loadCart();
   }
-
-  // alertClose() {
-  //   this.alertMessage = '';
-  // }
 }

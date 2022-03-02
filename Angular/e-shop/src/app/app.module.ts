@@ -13,6 +13,9 @@ import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { AuthInterceptorService } from './core/resources/services/auth-interceptor.service';
 import { AlertComponent } from './shared/components/alert/alert.component';
 import { CanDeactivateGuard } from './core/resources/services/can-deacticate-guard.service';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './cart/store/';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +33,7 @@ import { CanDeactivateGuard } from './core/resources/services/can-deacticate-gua
     HttpClientModule,
     ReactiveFormsModule,
     HttpClientModule,
+    StoreModule.forRoot(reducers),
   ],
   providers: [
     {
