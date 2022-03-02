@@ -17,6 +17,10 @@ export class ProductListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.getProducts();
+  }
+
+  private getProducts() {
     this.productService
       .getProducts()
       .pipe(untilDestroyed(this))
@@ -29,7 +33,6 @@ export class ProductListComponent implements OnInit {
         },
       });
   }
-
   addToCart(product: Product) {
     this.cartService
       .addToCart(product)
