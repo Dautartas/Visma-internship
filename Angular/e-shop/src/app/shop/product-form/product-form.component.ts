@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { Observable } from 'rxjs';
 import { Product } from 'src/app/core/resources/models/product.model';
 import { ProductService } from 'src/app/core/resources/services/product.service';
 import { IMAGE_NAMES } from 'src/app/shared/constants';
-import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { CanComponentDeactivate } from 'src/app/core/resources/services/can-deacticate-guard.service';
-import { Observable } from 'rxjs';
 @UntilDestroy()
 @Component({
   selector: 'app-product-form',
@@ -52,10 +52,7 @@ export class ProductFormComponent implements OnInit, CanComponentDeactivate {
     p = p ? p : this.emptyProduct();
     this.productImagePath = p.image;
     this.productForm = new FormGroup({
-      name: new FormControl(p.name, [
-        Validators.required,
-        Validators.maxLength(100),
-      ]),
+      name: new FormControl(p.name, [Validators.maxLength(100)]),
       price: new FormControl(p.price, [
         Validators.required,
         Validators.min(0.01),
