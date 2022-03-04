@@ -10,7 +10,7 @@ import { SidebarComponent } from './core/sidebar/sidebar.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { SidebarSectionComponent } from './core/sidebar/sidebar-section/sidebar-section.component';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
-import { AuthInterceptorService } from './core/resources/services/auth-interceptor.service';
+import { CacheInterceptorService } from './core/resources/services/cache-interceptor.service';
 import { AlertComponent } from './shared/components/alert/alert.component';
 import { CanDeactivateGuard } from './core/resources/services/can-deacticate-guard.service';
 import { StoreModule } from '@ngrx/store';
@@ -40,7 +40,7 @@ import { AuthComponent } from './auth/auth.component';
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptorService,
+      useClass: CacheInterceptorService,
       multi: true,
     },
     CanDeactivateGuard,
